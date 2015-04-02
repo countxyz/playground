@@ -1,0 +1,17 @@
+!.keep
+*.bak
+*.bkp
+*.DS_Store
+*.swp
+*~
+._*
+
+.bundle
+.directory
+.env
+.Spotlight-V100
+.Trashes
+
+config/secrets.yml
+log/*
+/tmp/*
