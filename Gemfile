@@ -19,6 +19,9 @@ gem 'uglifier', '~> 2.7.1'
 
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'jasmine-jquery-rails', '~> 2.0.3'
+  gem 'jasmine-rails', '~> 0.10.7'
+  gem 'magic_lamp', '~> 1.5.2'
   gem 'spring', '~> 1.3.3'
   gem 'rspec-rails', '~> 3.2.1'
 end
