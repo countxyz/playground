@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessor :password
 
+  has_many :tasks, dependent: :destroy
+
   EMAIL_REGEX = /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   validates_confirmation_of :password
