@@ -1,0 +1,8 @@
+nav#header-links role='navigation'
+  ul
+    - if signed_in?
+      li = link_to 'Profile',  profile_path
+      li = link_to 'Sign Out', signout_path, method: :delete
+    - else
+      li = link_to 'Sign Up', new_user_path
+      li = link_to 'Sign In', root_path
