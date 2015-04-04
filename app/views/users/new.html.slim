@@ -1,0 +1,9 @@
+section#user-signup
+  = simple_form_for @user do |f|
+    = render 'shared/error_messages', klass: @user
+
+    = f.input :email
+    = f.input :password
+    = f.input :password_confirmation, label: 'Password Confirmation'
+
+    = f.button :submit, 'Sign Up'

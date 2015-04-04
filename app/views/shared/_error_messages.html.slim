@@ -1,0 +1,5 @@
+- if klass.errors.any?
+  section The form contains #{pluralize(klass.errors.count, 'error')}
+
+  - klass.errors.full_messages.each do |message|
+    ul: li = message

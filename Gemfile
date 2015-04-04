@@ -13,6 +13,7 @@ gem 'normalize-rails', '~> 3.0.1'
 gem 'sass-rails', '~> 5.0.3'
 gem 'scrypt', '~> 2.0.0'
 gem 'slim-rails', '~> 3.0.1'
+gem 'simple_form', '~> 3.1.0'
 gem 'turbolinks', '~> 2.5.3'
 gem 'uglifier', '~> 2.7.1'
 

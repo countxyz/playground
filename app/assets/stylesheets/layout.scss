@@ -1,0 +1,18 @@
+html, body {  height: 100%; }
+
+#container {
+  @include outer-container;
+  height: 100%;
+
+  #notifications {
+    @include span-columns(12);
+    @include omega();
+    height: 10%;
+  }
+
+  #content {
+    @include span-columns(12);
+    @include omega();
+    height: 90%;
+  }
+}

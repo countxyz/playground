@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   def password=(unencrypted_password)
     @password            = unencrypted_password
-    self.password_digest = SCrypt::Password.create unencrypted_password
+    self.password_digest = SCrypt::Password.create(unencrypted_password)
   end
 
   def password_confirmation=(unencrypted_password)
