@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   mount JasmineRails::Engine, at: '/specs'      if defined?(JasmineRails)
   mount MagicLamp::Genie,     at: '/magic_lamp' if defined?(MagicLamp)
 
+  if defined?(Jasmine::Jquery::Rails::Engine)
+    mount JasmineFixtureServer, at: '/spec/javascripts/fixtures'
+  end
+
   resources :tasks, only: %i(index)
   resources :users, only: %i(new create show)
 

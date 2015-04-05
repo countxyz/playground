@@ -1,0 +1,4 @@
+en:
+  time:
+    formats:
+      task_list: '%B %e, %Y %l:%M %P %Z'

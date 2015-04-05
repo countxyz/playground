@@ -1,4 +1,9 @@
 li.task
   span = task.title
   a.detail-toggle href='#' Show Details
-  section.detail.hidden = task.description
+  section.detail.hidden
+    = task.description
+    time datetime=task.deadline
+      = task_time_format task.deadline
+    time datetime=task.completed
+      = task_time_format task.completed
