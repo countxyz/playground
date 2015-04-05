@@ -1,4 +1,4 @@
 MagicLamp.fixture do
-  @task = Task.first
-  render partial: 'tasks/index'
+  @tasks = Task.all
+  render template: 'tasks/index'
 end

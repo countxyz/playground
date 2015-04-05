@@ -4,6 +4,6 @@ user = User.create(email: 'user@example.com', password: 'password',
 user.save
 
 Task.destroy_all
-Task.create description: 'Go To Grocery',  user: user
-Task.create description: 'Type Some Code', user: user
-Task.create description: 'Build An App',   user: user
+Task.create title: 'Go To Grocery',  description: 'Drive', user: user
+Task.create title: 'Type Some Code', description: 'Ruby',  user: user
+Task.create title: 'Build An App',   description: 'Rails', user: user
