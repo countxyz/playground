@@ -15,4 +15,12 @@ RSpec.describe Task do
     it { should validate_length_of(:description).is_at_most(200) }
     it { should validate_presence_of(:description)               }
   end
+
+  describe 'default scope' do
+    it 'returns tasks in descending order by deadline date' do
+      further_deadline = create :task, deadline: Date.today + 2.weeks
+      sooner_deadline  = create :task, deadline: Date.today + 1.week
+      expect(Task.all).to eq [sooner_deadline, further_deadline]
+    end
+  end
 end

@@ -5,4 +5,6 @@ class Task < ActiveRecord::Base
   validates_length_of :title,       maximum: 50
 
   validates_presence_of :description, :title
+
+  default_scope { order(deadline: :asc) }
 end
