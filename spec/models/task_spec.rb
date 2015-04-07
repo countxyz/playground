@@ -17,6 +17,12 @@ RSpec.describe Task do
   end
 
   describe 'default scope' do
+    it 'returns only tasks that are incomplete' do
+      complete_task   = create :task, complete: true
+      incomplete_task = create :task, complete: false
+      expect(Task.all).to eq [incomplete_task]
+    end
+
     it 'returns tasks in descending order by deadline date' do
       further_deadline = create :task, deadline: Date.today + 2.weeks
       sooner_deadline  = create :task, deadline: Date.today + 1.week

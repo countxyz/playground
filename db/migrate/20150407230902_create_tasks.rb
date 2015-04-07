@@ -6,7 +6,8 @@ class CreateTasks < ActiveRecord::Migration
       t.string   :title,       null: false
       t.text     :description, null: false
       t.datetime :deadline
-      t.datetime :completed
+      t.boolean  :complete,    default: true, null: false
+      t.datetime :completed_at
 
       t.references :user, index: true
     end

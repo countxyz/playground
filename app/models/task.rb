@@ -6,5 +6,6 @@ class Task < ActiveRecord::Base
 
   validates_presence_of :description, :title
 
-  default_scope { order(deadline: :asc) }
+  default_scope { where(complete: false) }
+  default_scope { order(deadline: :asc)  }
 end
