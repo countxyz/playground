@@ -162,18 +162,15 @@ window.ImageEditor = class ImageEditor
         resizeImage width, height
 
     crop = ->
-      areaCrop()
+      left   = $('.overlay').offset().left - $container.offset().left
+      top    = $('.overlay').offset().top - $container.offset().top
+      width  = $('.overlay').width()
+      height = $('.overlay').height()
       crop_canvas = document.createElement 'canvas'
       crop_canvas.width  = width
       crop_canvas.height = height
       crop_canvas.getContext('2d').drawImage image_target, left, top, width, height, 0, 0, width, height
       window.open crop_canvas.toDataURL 'image/png'
-
-    areaCrop = ->
-      left   = $('.overlay').offset().left - $container.offset().left
-      top    = $('.overlay').offset().top - $container.offset().top
-      width  = $('.overlay').width()
-      height = $('.overlay').height()
 
     preventAndStop = ->
       event.preventDefault()

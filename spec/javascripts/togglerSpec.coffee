@@ -2,9 +2,8 @@ describe 'clicking a show description link', ->
   toggler = null
 
   beforeEach ->
-    toggler = new Toggler
+    toggler = new Toggler $('.detail-toggle')
     loadFixtures 'task-index.html'
-    toggler.init()
     $('.detail-toggle').click()
 
   it 'shows the task description', ->

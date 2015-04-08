@@ -1,18 +1,19 @@
-window.Toggler = class Toggler
+class window.Toggler
+  constructor: (toggleLinks) ->
+    @toggleLinks = $(toggleLinks)
 
-  init: ->
-    $toggle_links = $('.detail-toggle')
+    @_toggle()
 
-    $toggle_links.click (event) ->
-      $detail = $(this).siblings '.detail'
+  _toggle: ->
+    @toggleLinks.click (event) ->
+      $detail = $(@).siblings '.detail'
 
       if $detail.hasClass 'hidden'
-        $(this).text 'Hide Details'
+        $(@).text 'Hide Details'
       else
-        $(this).text 'Show Details'
+        $(@).text 'Show Details'
 
       $detail.toggleClass 'hidden'
       event.preventDefault()
 
-toggler = new Toggler
-toggler.init()
+toggler = new Toggler $('.detail-toggle')
