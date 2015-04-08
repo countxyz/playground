@@ -1,16 +1,19 @@
 #tasks-index {
   @include span-columns(12);
   @include omega();
+
   height: 100%;
 
   .tasks {
     @include span-columns(12);
     @include omega();
+
     height: 100%;
 
     .task {
       @include span-columns(11);
       @include shift(1);
+
       display: inline;
 
       span {

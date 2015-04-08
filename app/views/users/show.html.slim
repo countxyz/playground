@@ -1,5 +1,18 @@
 - provide :title, 'Profile'
 
-= @user.email
+section#user-profile
+  nav#user-site-navigation role='navigation'
+    ul
+      li = link_to 'My Tasks', tasks_path
 
-= link_to 'My Tasks', tasks_path
+  .component
+    .overlay
+      .overlay-inner
+
+    = image_tag 'bill_lumbergh.jpg', class: 'resize-image', alt: 'Image'
+
+    button.btn-crop.js-crop Crop
+
+  section#user-info
+    ul
+      li = @user.email
