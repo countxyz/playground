@@ -1,4 +1,5 @@
 class window.Toggler
+
   constructor: (toggleLinks) ->
     @toggleLinks = $(toggleLinks)
 

@@ -1,182 +1,183 @@
-window.ImageEditor = class ImageEditor
+class window.ImageEditor
 
-  resizeableImage: (image_target) ->
-    $container    = undefined
-    orig_src      = new Image
-    image_target  = $(image_target).get 0
-    event_state   = {}
-    constrain     = false
-    min_width     = 60
-    min_height    = 60
-    max_width     = 800
-    max_height    = 900
-    resize_canvas = document.createElement 'canvas'
+  constructor: (@minWidth, @minHeight, @maxWidth, @maxHeight, imageTarget) ->
+    @imageTarget  = $(imageTarget)
+    @container    = $(imageTarget).parent '.resize-container'
+    @ogSrc        = new Image
+    @ogSrc.src    = @imageTarget[0].src
+    @eventState   = {}
+    @constrain    = false
+    @resizeCanvas = document.createElement 'canvas'
 
-    init = ->
-      orig_src.src = image_target.src
-      imageHandles()
-      $container = $(image_target).parent '.resize-container'
-      containerMouseDown()
-      $('.js-crop').on 'click', crop
+    @_imageHandles()
+    @_startMouseActions()
+    @_clickButtonCrop()
 
-    imageHandles = ->
-      $(image_target).wrap('<div class="resize-container"></div>')
-        .before '<span class="resize-handle resize-handle-nw"></span>'
-        .before '<span class="resize-handle resize-handle-ne"></span>'
-        .after '<span class="resize-handle resize-handle-se"></span>'
-        .after '<span class="resize-handle resize-handle-sw"></span>'
+  _imageHandles: ->
+    @imageTarget.wrap('<div class="resize-container"></div>')
+      .before '<span class="resize-handle resize-handle-nw"></span>'
+      .before '<span class="resize-handle resize-handle-ne"></span>'
+      .after '<span class="resize-handle resize-handle-se"></span>'
+      .after '<span class="resize-handle resize-handle-sw"></span>'
 
-    containerMouseDown = ->
-      $container.on 'mousedown touchstart', '.resize-handle', startResize
-      $container.on 'mousedown touchstart', 'img',            startMoving
+  _startMouseActions: ->
+    @container.on 'mousedown touchstart', '.resize-handle', (event) ->
+      @_startResize()
+    @container.on 'mousedown touchstart', 'img', (event) -> @_startMoving()
 
-    startResize = (event) ->
-      preventAndStop()
-      saveEventState event
-      onMouseResize()
+  _clickButtonCrop: -> $('.js-crop').on 'click', (event) -> @_crop()
 
-    endResize = (event) ->
-      event.preventDefault()
-      offMouseResize()
+  _startResize: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    @_saveEventState e
+    $(document).on 'mousemove touchmove', @_resizing()
+    $(document).on 'mouseup touchend',    @_endResize()
 
-    onMouseResize = ->
-      $(document).on 'mousemove touchmove', resizing
-      $(document).on 'mouseup touchend',    endResize
+  _endResize: (e) ->
+    e.preventDefault()
+    $(document).off 'mouseup touchend',    @_endResize()
+    $(document).off 'mousemove touchmove', @_resizing()
 
-    offMouseResize = ->
-      $(document).off 'mouseup touchend', endResize
-      $(document).off 'mousemove touchmove', resizing
+  _saveEventState: (e) ->
+    @eventState.container_width  = @container.width()
+    @eventState.container_height = @container.height()
+    @eventState.container_left   = @container.offset().left
+    @eventState.container_top    = @container.offset().top
 
-    saveEventState = (event) ->
-      stateContainerMeasurements()
-      event_state.mouse_x =
-        (event.clientX || event.pageX || event.originalEvent.touches[0].clientX) +
-        $(window).scrollLeft()
-      event_state.mouse_y =
-        (event.clientY || event.pageY || event.originalEvent.touches[0].clientY) +
-        $(window).scrollTop()
+    @eventState.mouse_x =
+      (e.clientX || e.pageX || e.originalEvent.touches[0].clientX) +
+      $(window).scrollLeft()
+    @eventState.mouse_y =
+      (e.clientY || e.pageY || e.originalEvent.touches[0].clientY) +
+      $(window).scrollTop()
 
-      if typeof event.originalEvent.touches != 'undefined'
-        event_state.touches = []
-        $.each event.originalEvent.touches, (i, ob) ->
-          event_state.touches[i] = {}
-          event_state.touches[i].clientX = 0 + ob.clientX
-          event_state.touches[i].clientY = 0 + ob.clientY
-      event_state.evnt = event
+    if typeof e.originalEvent.touches != 'undefined'
+      @eventState.touches = []
+      $.each e.originalEvent.touches, (i, ob) ->
+        @eventState.touches[i] = {}
+        @eventState.touches[i].clientX = 0 + ob.clientX
+        @eventState.touches[i].clientY = 0 + ob.clientY
 
-    stateContainerMeasurements = ->
-      event_state.container_width  = $container.width()
-      event_state.container_height = $container.height()
-      event_state.container_left   = $container.offset().left
-      event_state.container_top    = $container.offset().top
+    @eventState.evnt = e
 
-    resizing = (event) ->
-      mouse   = {}
-      offset  = $container.offset()
-      mouse.x =
-        (event.clientX || event.pageX || event.originalEvent.touches[0].clientX) +
-        $(window).scrollLeft()
-      mouse.y =
-        (event.clientY || event.pageY || event.originalEvent.touches[0].clientY) +
-        $(window).scrollTop()
+  _resizing: (e) ->
+    mouse  = {}
+    offset = @container.offset()
 
-      if $(event_state.evnt.target).hasClass 'resize-handle-se'
-        width  = mouse.x - event_state.container_left
-        height = mouse.y - event_state.container_top
-        left   = event_state.container_left
-        top    = event_state.container_top
-      else if $(event_state.evnt.target).hasClass 'resize-handle-sw'
-        width  = event_state.container_width - (mouse.x - event_state.container_left)
-        height = mouse.y - event_state.container_top
-        left   = mouse.x
-        top    = event_state.container_top
-      else if $(event_state.evnt.target).hasClass 'resize-handle-nw'
-        width  = event_state.container_width - (mouse.x - event_state.container_left)
-        height = event_state.container_height - (mouse.y - event_state.container_top)
-        left   = mouse.x
-        top    = mouse.y
-        if constrain || event.shiftKey
-          top = mouse.y - (width / orig_src.width * orig_src.height - height)
-      else if $(event_state.evnt.target).hasClass 'resize-handle-ne'
-        width  = mouse.x - event_state.container_left
-        height = event_state.container_height - (mouse.y - event_state.container_top)
-        left   = event_state.container_left
-        top    = mouse.y
-        if constrain || event.shiftKey
-          top = mouse.y - (width / orig_src.width * orig_src.height - height)
-      if constrain || event.shiftKey
-        height = width / orig_src.width * orig_src.height
-      if width > min_width && height > min_height && width < max_width && height < max_height
-        resizeImage width, height
-        $container.offset { 'left': left, 'top': top }
+    mouse.x =
+      (e.clientX || e.pageX || e.originalEvent.touches[0].clientX) +
+      $(window).scrollLeft()
+    mouse.y =
+      (e.clientY || e.pageY || e.originalEvent.touches[0].clientY) +
+      $(window).scrollTop()
 
-    resizeImage = (width, height) ->
-      resize_canvas.width  = width
-      resize_canvas.height = height
-      resize_canvas.getContext('2d').drawImage orig_src, 0, 0, width, height
-      $(image_target).attr 'src', resize_canvas.toDataURL 'image/png'
+    if @eventState.evnt.target.hasClass 'resize-handle-se'
+      width  = mouse.x - @eventState.container_left
+      height = mouse.y - @eventState.container_top
+      left   = @eventState.container_left
+      top    = @eventState.container_top
 
-    startMoving = (event) ->
-      preventAndStop()
-      saveEventState event
-      onMouseMove()
+    else if @eventState.evnt.target.hasClass 'resize-handle-sw'
+      width  = @eventState.container_width - (mouse.x - @eventState.container_left)
+      height = mouse.y - @eventState.container_top
+      left   = mouse.x
+      top    = @eventState.container_top
 
-    endMoving = (event) ->
-      event.preventDefault()
-      offMouseMove()
+    else if @eventState.evnt.target.hasClass 'resize-handle-nw'
+      width  = @eventState.container_width  - (mouse.x - @eventState.container_left)
+      height = @eventState.container_height - (mouse.y - @eventState.container_top)
+      left   = mouse.x
+      top    = mouse.y
 
-    onMouseMove = ->
-      $(document).on 'mousemove touchmove', moving
-      $(document).on 'mouseup touchend',    endMoving
+      if @constrain || e.shiftKey
+        top = mouse.y - ((width / @ogSrc.width * @ogSrc.height) - height)
 
-    offMouseMove = ->
-      $(document).off 'mouseup touchend',    endMoving
-      $(document).off 'mousemove touchmove', moving
+    else if @eventState.evnt.target.hasClass 'resize-handle-ne'
+      width  = mouse.x - @eventState.container_left
+      height = @eventState.container_height - (mouse.y - @eventState.container_top)
+      left   = @eventState.container_left
+      top = mouse.y
+      if @constrain || e.shiftKey
+        top = mouse.y - ((width / @ogSrc.width * @ogSrc.height) - height)
 
-    moving = (event) ->
-      mouse = {}
-      preventAndStop()
-      touches = event.originalEvent.touches
-      mouse.x = (event.clientX || event.pageX || touches[0].clientX) + $(window).scrollLeft()
-      mouse.y = (event.clientY || event.pageY || touches[0].clientY) + $(window).scrollTop()
-      $container.offset
-        'left': mouse.x - (event_state.mouse_x - event_state.container_left)
-        'top': mouse.y - (event_state.mouse_y - event_state.container_top)
+    if @constrain || e.shiftKey
+      height = width / @ogSrc.width * @ogSrc.height
 
-      if event_state.touches && event_state.touches.length > 1 && touches.length > 1
-        width  = event_state.container_width
-        height = event_state.container_height
-        a = event_state.touches[0].clientX - event_state.touches[1].clientX
-        a = a * a
-        b = event_state.touches[0].clientY - event_state.touches[1].clientY
-        b = b * b
-        dist1 = Math.sqrt(a + b)
-        a = event.originalEvent.touches[0].clientX - touches[1].clientX
-        a = a * a
-        b = event.originalEvent.touches[0].clientY - touches[1].clientY
-        b = b * b
-        dist2  = Math.sqrt(a + b)
-        ratio  = dist2 / dist1
-        width  = width * ratio
-        height = height * ratio
-        resizeImage width, height
+    if width > @minWidth && height > @minHeight && width < @maxWidth && height < @maxHeight
+      @_resizeImage width, height
+      @container.offset {'left': left, 'top': top}
 
-    crop = ->
-      left   = $('.overlay').offset().left - $container.offset().left
-      top    = $('.overlay').offset().top - $container.offset().top
-      width  = $('.overlay').width()
-      height = $('.overlay').height()
-      crop_canvas = document.createElement 'canvas'
-      crop_canvas.width  = width
-      crop_canvas.height = height
-      crop_canvas.getContext('2d').drawImage image_target, left, top, width, height, 0, 0, width, height
-      window.open crop_canvas.toDataURL 'image/png'
+  _resizeImage: (width, height) ->
+    @resizeCanvas.width  = width
+    @resizeCanvas.height = height
+    @resizeCanvas.getContext('2d').drawImage @ogSrc, 0, 0, width, height
+    @imageTarget.attr 'src', @resizeCanvas.toDataURL 'image/png'
 
-    preventAndStop = ->
-      event.preventDefault()
-      event.stopPropagation()
+  _startMoving: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    @_saveEventState e
+    $(document).on 'mousemove touchmove', @_moving()
+    $(document).on 'mouseup touchend',    @_endMoving()
 
-    init()
+  _endMoving: (e) ->
+    e.preventDefault()
+    $(document).off 'mouseup touchend',    @_endMoving()
+    $(document).off 'mousemove touchmove', @_moving()
 
-imageEditor = new ImageEditor
-imageEditor.resizeableImage $('.resize-image')
+  _moving: (e) ->
+    mouse = {}
+    e.preventDefault()
+    e.stopPropagation()
+
+    touches = e.originalEvent.touches
+
+    mouse.x =
+      (e.clientX || e.pageX || touches[0].clientX) + $(window).scrollLeft()
+    mouse.y =
+      (e.clientY || e.pageY || touches[0].clientY) + $(window).scrollTop()
+
+    $container.offset
+      'left': mouse.x - ( @eventState.mouse_x - @eventState.container_left )
+      'top' : mouse.y - ( @eventState.mouse_y - @eventState.container_top )
+
+    if @eventState.touches && @eventState.touches.length > 1 && touches.length > 1
+      width  = @eventState.container_width
+      height = @eventState.container_height
+      a = @eventState.touches[0].clientX - @eventState.touches[1].clientX
+      a *= a
+      b = @eventState.touches[0].clientY - @eventState.touches[1].clientY
+      b *= b
+      dist1 = Math.sqrt( a + b )
+
+      a = e.originalEvent.touches[0].clientX - touches[1].clientX
+      a *= a
+      b = e.originalEvent.touches[0].clientY - touches[1].clientY
+      b *= b
+      dist2 = Math.sqrt( a + b )
+
+      ratio = dist2 / dist1
+
+      width  *= ratio
+      height *= ratio
+
+      @_resizeImage width, height
+
+  _crop: ->
+    console.log @container
+    left   = $('.overlay').offset().left - @container.offset().left
+    top    = $('.overlay').offset().top  - @container.offset().top
+    width  = $('.overlay').width()
+    height = $('.overlay').height()
+
+    cropCanvas        = document.createElement 'canvas'
+    cropCanvas.width  = width
+    cropCanvas.height = height
+
+    cropCanvas.getContext('2d')
+      .drawImage @imageTarget, left, top, width, height, 0, 0, width, height
+
+    window.open cropCanvas.toDataURL 'image/png'
+
+imageEditor = new ImageEditor 60, 60, 800, 900, $('.resize-image')
