@@ -1,19 +1,77 @@
 .component {
-  position: relative;
   background: url(gridme.png) repeat center center;
-  padding: 4em;
-  height: 500px;
   border: 3px solid #49708A;
+  height: 500px;
+  margin: 0 auto;
   max-width: 901px;
   overflow: hidden;
-  margin: 0 auto;
-}
-
-.resize-container {
+  padding: 4em;
   position: relative;
-  display: inline-block;
-  cursor: move;
-  margin: 0 auto;
+
+  .overlay {
+    @include position(absolute, 50% null null 50%);
+    @include size(200px);
+
+    border: solid 2px rgba(222,60,80,.9);
+    box-sizing: content-box;
+    margin-left: -100px;
+    margin-top: -100px;
+    pointer-events: none;
+    z-index: 999;
+
+    &:before, &:after {
+      @include size(204px 40px);
+
+      border-left:  dashed 2px rgba(222,60,80,.9);
+      border-right: dashed 2px rgba(222,60,80,.9);
+      content: '';
+      display: block;
+      position: absolute;
+    }
+
+    &:before {
+      @include margin(-40px null null -2px);
+
+      top: 0;
+    }
+
+    &:after {
+      @include margin(null null -40px -2px);
+
+      bottom: 0;
+    }
+
+    .overlay-inner {
+      &:before, &:after {
+        @include size(40px 204px);
+
+        border-bottom: dashed 2px rgba(222,60,80,.9);
+        border-top: dashed 2px rgba(222,60,80,.9);
+        content: '';
+        display: block;
+        position: absolute;
+      }
+
+      &:before {
+        @include margin(-2px null null -40px);
+
+        left: 0;
+      }
+
+      &:after {
+        @include margin(-2px 40px null null);
+
+        right: 0;
+      }
+    }
+  }
+
+  .resize-container {
+    cursor: move;
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+  }
 }
 
 .resize-container img { display: block }
@@ -26,107 +84,46 @@
 .resize-handle-se,
 .resize-handle-nw,
 .resize-handle-sw {
-  position: absolute;
-  display: block;
-  width: 10px;
-  height: 10px;
+  @include size(10px);
+
   background: rgba(222,60,80,.9);
+  display: block;
+  position: absolute;
   z-index: 999;
 }
 
 .resize-handle-nw {
-  top: -5px;
-  left: -5px;
   cursor: nw-resize;
+  left: -5px;
+  top: -5px;
 }
 
 .resize-handle-sw {
   bottom: -5px;
-  left: -5px;
   cursor: sw-resize;
+  left: -5px;
 }
 
 .resize-handle-ne {
-  top: -5px;
-  right: -5px;
   cursor: ne-resize;
+  right: -5px;
+  top: -5px;
 }
 
 .resize-handle-se {
   bottom: -5px;
-  right: -5px;
   cursor: se-resize;
-}
-
-.overlay {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -100px;
-  margin-top: -100px;
-  z-index: 999;
-  width: 200px;
-  height: 200px;
-  border: solid 2px rgba(222,60,80,.9);
-  box-sizing: content-box;
-  pointer-events: none;
-}
-
-.overlay:after,
-.overlay:before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 204px;
-  height: 40px;
-  border-left: dashed 2px rgba(222,60,80,.9);
-  border-right: dashed 2px rgba(222,60,80,.9);
-}
-
-.overlay:before {
-  top: 0;
-  margin-left: -2px;
-  margin-top: -40px;
-}
-
-.overlay:after {
-  bottom: 0;
-  margin-left: -2px;
-  margin-bottom: -40px;
-}
-
-.overlay-inner:after,
-.overlay-inner:before {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 40px;
-  height: 204px;
-  border-top: dashed 2px rgba(222,60,80,.9);
-  border-bottom: dashed 2px rgba(222,60,80,.9);
-}
-
-.overlay-inner:before {
-  left: 0;
-  margin-left: -40px;
-  margin-top: -2px;
-}
-
-.overlay-inner:after {
-  right: 0;
-  margin-right: -40px;
-  margin-top: -2px;
+  right: -5px;
 }
 
 .btn-crop {
-  position: absolute;
-  vertical-align: bottom;
-  right: 5px;
-  bottom: 5px;
-  padding: 6px 10px;
-  z-index: 999;
+  @include position(absolute, null 5px 5px null);
+
   background-color: rgb(222,60,80);
-  border: none;
   border-radius: 5px;
+  border: none;
   color: #FFF;
+  padding: 6px 10px;
+  vertical-align: bottom;
+  z-index: 999;
 }
