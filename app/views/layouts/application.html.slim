@@ -6,17 +6,16 @@ html lang='en'
     title = full_title yield :title
     = stylesheet_link_tag 'application', \
       media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'main', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   body
     #container
-      header#site-header
+      header#site-header role='banner'
         = render 'layouts/header'
 
       section#notifications
         = render 'layouts/notifications'
 
-      section#content
+      main#content role='main'
         = yield
-
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true

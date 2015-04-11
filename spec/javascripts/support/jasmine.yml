@@ -5,6 +5,7 @@ css_dir: 'app/assets/stylesheets'
 src_files:
   - "application.{js.coffee,js,coffee}"
   - assets/jasmine-jquery.js
+
 spec_dir: spec/javascripts
 
 helpers:

@@ -3,3 +3,8 @@
 section#tasks-index
   ul.tasks
     = render @tasks
+
+  nav#context-menu.context-menu-interface
+    = render 'context_menu'
+
+= javascript_include_tag 'contextMenu'

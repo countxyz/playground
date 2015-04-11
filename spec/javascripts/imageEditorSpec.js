@@ -1,7 +1,7 @@
 describe('ImageEditor', function() {
 
   beforeEach(function() {
-    loadFixtures 'image-editor.html'
+    loadFixtures('users/show');
     resizeableImage($('.resize-image'));
   });
 

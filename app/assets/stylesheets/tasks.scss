@@ -1,27 +1,21 @@
 #tasks-index {
-  @include span-columns(12);
-  @include omega();
+  @include span-columns(10);
+  @include shift(1);
 
   height: 100%;
 
   .tasks {
-    @include span-columns(12);
-    @include omega();
-
-    height: 100%;
+    margin: 0;
+    padding: 0;
 
     .task {
-      @include span-columns(11);
-      @include shift(1);
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: solid 1px #dfdfdf;
 
-      display: inline;
-
-      span {
-        @include span-columns(3 of 11);
-      }
-
-      a {
-        @include span-columns(2 of 11);
+      &:last-child {
+        border-bottom: none;
       }
     }
   }

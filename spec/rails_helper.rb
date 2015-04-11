@@ -28,5 +28,6 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
   config.include FactoryGirl::Syntax::Methods
-  Capybara.javascript_driver = :poltergeists
+
+  Capybara.javascript_driver = :poltergeist
 end
