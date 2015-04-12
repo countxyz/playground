@@ -1,9 +1,17 @@
 section#footer-content
   section#copyright
-    p
-    | Copyright © 2015 Efren Aguirre <skeptoid@gmail.com> - Do What the Fuck
-      You Want to Public License. See
-      <a href='http://www.wtfpl.net' target='_blank'>wtfpl</a>
-      for more details
+    p Copyright © 2015 Efren Aguirre / skeptoid@gmail.com
+    p Do What the Fuck You Want to Public License.
+    p See <a href='http://www.wtfpl.net' target='_blank'>wtfpl</a> for more details
 
-  section#icons-that-represent
+  nav#footer-links role='navigation'
+    ul
+      li
+        = link_to( image_tag( 'site/wtfpl-blue.svg', id: 'wtfpl' ),
+        'http://www.wtfpl.net', target: '_blank' )
+
+      li = image_tag 'site/made_in_NY.png', id: 'made-in-NY'
+
+      li
+        = link_to( image_tag( 'site/github.png', id: 'github' ),
+        'https://github.com/countxyz', target: '_blank' )

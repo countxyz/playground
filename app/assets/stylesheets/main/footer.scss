@@ -6,12 +6,30 @@
     @include span-columns(12);
     @include omega();
 
+    height: 100%;
+
     #copyright {
-      @include span-columns(6);
+      @include span-columns(4);
+      @include shift(1);
+
+      font-size: 0.8em;
     }
 
-    #icons-that-represent {
+    #footer-links {
       @include span-columns(6);
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+
+        li {
+          @include span-columns(1);
+          @include shift(1);
+          align-items: center;
+        }
+      }
     }
   }
 }
+
+#wtfpl, #github, #made-in-NY { @include size(63px); }
