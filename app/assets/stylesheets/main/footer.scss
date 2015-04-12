@@ -1,0 +1,17 @@
+#site-footer {
+  background: black;
+  color: white;
+
+  #footer-content {
+    @include span-columns(12);
+    @include omega();
+
+    #copyright {
+      @include span-columns(6);
+    }
+
+    #icons-that-represent {
+      @include span-columns(6);
+    }
+  }
+}

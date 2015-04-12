@@ -2,11 +2,12 @@ html, body, #container {  height: 100%; }
 
 #container { @include outer-container; }
 
-#site-header, #notifications, #content {
+#site-header, #notifications, #content, #site-footer {
   @include span-columns(12);
   @include omega();
 }
 
 #site-header   { height: 10%; }
 #notifications { height:  5%; }
-#content       { height: 85%; }
+#content       { height: 75%; }
+#site-header   { height: 10%; }
