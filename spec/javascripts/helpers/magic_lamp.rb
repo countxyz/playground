@@ -1,7 +1,9 @@
-MagicLamp.fixture controller: UsersController do
-  current_user = User.first
-  @user        = current_user
-  render :show
+MagicLamp.define controller: UsersController do
+  fixture do
+    current_user = User.first
+    @user        = current_user
+    render :show
+  end
 end
 
 MagicLamp.define controller: TasksController do

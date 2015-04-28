@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.2'
 
 gem 'rails', '4.2.1'
 gem 'pg', '~> 0.18.1'
@@ -20,9 +20,9 @@ gem 'uglifier', '~> 2.7.1'
 group :development, :test do
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'jasmine-jquery-rails', '~> 2.0.3'
-  gem 'jasmine-rails', '~> 0.10.7'
+  gem 'jasmine-rails', '~> 0.10.8'
   gem 'magic_lamp', '~> 1.5.2'
-  gem 'spring', '~> 1.3.3'
+  gem 'spring', '~> 1.3.4'
   gem 'rspec-rails', '~> 3.2.1'
 end
 

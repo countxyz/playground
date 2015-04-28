@@ -9,6 +9,7 @@ require 'shoulda/matchers'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
+require 'jasmine_rails/rspec'
 require 'database_cleaner'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
@@ -28,6 +29,10 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
   config.include FactoryGirl::Syntax::Methods
+
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new app, inspector: true
+  end
 
   Capybara.javascript_driver = :poltergeist
 end
