@@ -1,0 +1,20 @@
+records:
+  - sprig_id: 1
+    title:       'Go To Grocery'
+    deadline:    '<%= Date.today + 2.weeks %>'
+    description: 'Drive there. Make sure to get cookies.'
+    user_id:     '<%= sprig_record(User, 1).id %>'
+
+  - sprig_id: 2
+    title:       'Type Some Code'
+    deadline:    '<%= Date.today + 3.weeks %>'
+    description: 'Use Ruby.'
+    user_id:     '<%= sprig_record(User, 1).id %>'
+
+  - sprig_id: 3
+    title:        'Build An App'
+    deadline:     '<%= 3.days.ago %>'
+    complete:     true
+    completed_at: '<%= 5.days.ago %>'
+    description:  'With Rails.'
+    user_id:      '<%= sprig_record(User, 1).id %>'

@@ -31,6 +31,7 @@ group :development do
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'meta_request', '~> 0.3.4'
   gem 'pry-rails', '~> 0.3.4'
+  gem 'sprig', '~> 0.1.7'
   gem 'spring-commands-rspec', '~> 1.0.4'
 end
 

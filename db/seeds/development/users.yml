@@ -1,0 +1,7 @@
+records:
+  - sprig_id: 1
+    email:                 'user@example.com'
+    first_name:            'Bill'
+    last_name:             'Lumbergh'
+    password:              'password'
+    password_confirmation: 'password'
