@@ -9,7 +9,7 @@ ready = ->
 
   $('#search').soulmate
     url: '/autocomplete/search'
-    types: [ 'contacts' ]
+    types: [ 'accounts', 'contacts' ]
     renderCallback: render
     selectCallback: select
     minQueryLength: 2

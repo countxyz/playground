@@ -20,4 +20,20 @@ class Account < ActiveRecord::Base
 
   scope :active_total,   -> { where('active is true').count  }
   scope :inactive_total, -> { where('active is false').count }
+
+  after_save     :load_into_soulmate
+  before_destroy :remove_from_soulmate
+
+  private
+
+  def load_into_soulmate
+    loader = Soulmate::Loader.new 'accounts'
+    loader.add('term' => name, 'id' => self.id, 'data' => {
+      'link' => Rails.application.routes.url_helpers.account_path(self) } )
+  end
+
+  def remove_from_soulmate
+    loader = Soulmate::Loader.new 'accounts'
+    loader.remove 'id' => self.id
+  end
 end
