@@ -1,6 +1,8 @@
 class Contact < ActiveRecord::Base
   belongs_to :user
 
+  has_many :emails, as: :emailable, dependent: :destroy
+
   validates_presence_of :first_name
 
   validates_length_of :first_name,          maximum: 50

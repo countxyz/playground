@@ -3,6 +3,8 @@ class Account < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :emails, as: :emailable, dependent: :destroy
+
   friendly_id :name, use: :slugged
 
   validates_presence_of :name
