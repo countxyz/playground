@@ -1,0 +1,33 @@
+#accounts {
+  @include span-columns(12);
+  @include omega();
+  height: 100%;
+
+  #accounts-content {
+    @include span-columns(12);
+    @include omega();
+    height: 100%;
+
+    #accounts-list {
+      @include span-columns(10);
+      @include shift(1);
+
+      li {
+        border-bottom: solid 1px black;
+        padding-top: 1em;
+      }
+    }
+  }
+}
+
+#account-profile {
+  @include span-columns(12);
+  @include omega();
+  height: 100%;
+
+  #account-profile-content {
+    @include span-columns(10);
+    @include shift(1);
+    height: 100%;
+  }
+}

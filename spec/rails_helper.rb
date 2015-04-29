@@ -23,8 +23,8 @@ RSpec.configure do |config|
   config.before(:each)           { DatabaseCleaner.start                   }
   config.after(:each)            { DatabaseCleaner.clean                   }
 
-  config.after(:suite) do
-    FileUtils.rm_rf(Dir["#{Rails.root}/spec/test_files/"])
+  config.after :suite do
+    FileUtils.rm_rf Dir["#{Rails.root}/spec/test_files/"]
   end
 
   config.infer_spec_type_from_file_location!

@@ -1,6 +1,14 @@
-html, body, #container {  height: 100%; }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-#container { @include outer-container; }
+#container {
+  @include outer-container;
+  min-height: 100%;
+  position: relative;
+}
 
 #site-header, #notifications, #content, #site-footer {
   @include span-columns(12);
@@ -9,5 +17,13 @@ html, body, #container {  height: 100%; }
 
 #site-header   { height: 10%; }
 #notifications { height:  5%; }
-#content       { height: 75%; }
-#site-header   { height: 10%; }
+
+#content {
+  height: 85%;
+  padding-bottom: 7em;
+}
+
+#site-footer {
+  @include position(absolute, null null 0 0);
+  height: 7em;
+}

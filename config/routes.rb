@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   mount JasmineRails::Engine, at: '/specs'      if defined?(JasmineRails)
   mount MagicLamp::Genie,     at: '/magic_lamp' if defined?(MagicLamp)
 
-  resources :tasks, only: %i(index)
-  resources :users, only: %i(new create show)
+  resources :accounts, only: %i(index show)
+  resources :tasks,    only: %i(index)
+  resources :users,    only: %i(new create show)
 
   get 'profile', to: 'users#show'
 

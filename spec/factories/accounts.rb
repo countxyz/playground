@@ -3,6 +3,5 @@ FactoryGirl.define do
 
   factory :account do
     name { generate :name }
-    slug { generate :name }
   end
 end

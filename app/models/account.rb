@@ -7,7 +7,7 @@ class Account < ActiveRecord::Base
 
   has_many :emails, as: :emailable, dependent: :destroy
 
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: %w(slugged finders)
 
   validates_presence_of :name
 

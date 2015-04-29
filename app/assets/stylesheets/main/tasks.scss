@@ -1,7 +1,6 @@
 #tasks-index {
   @include span-columns(10);
   @include shift(1);
-
   height: 100%;
 
   .tasks {

@@ -22,7 +22,7 @@ RSpec.describe Account do
   end
 
   describe 'Uniqueness' do
-    subject { build :account                               }
+    subject { build :account, slug: 'account1'             }
     it      { is_expected.to validate_uniqueness_of :name  }
   end
 
