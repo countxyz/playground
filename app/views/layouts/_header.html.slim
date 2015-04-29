@@ -1,7 +1,9 @@
 section#header-content
   section#site-search
-    = form_tag do
-      = text_field_tag 'search', nil, placeholder: 'Search', autocomplete: :off
+    - if signed_in?
+      = form_tag do
+        = text_field_tag 'search', nil, placeholder: 'Search',
+          autocomplete: :off
 
   nav#header-links role='navigation'
     ul
@@ -10,6 +12,3 @@ section#header-content
         li = link_to 'Accounts', accounts_path
         li = link_to 'Contacts', contacts_path
         li = link_to 'Sign Out', signout_path, method: :delete
-      - else
-        li = link_to 'Sign Up', new_user_path
-        li = link_to 'Sign In', root_path

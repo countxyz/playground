@@ -3,10 +3,13 @@
 @import 'base/grid-settings';
 @import 'neat';
 @import 'base/helpers';
-@import 'shared/defaults';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/defaults';
 @import 'components/image-editor';
+@import 'components/soulmate';
 @import 'components/context-menu';
-@import 'main/layout';
+@import 'shared/layout';
 @import 'shared/header';
 @import 'shared/footer';
 @import 'main/landing';

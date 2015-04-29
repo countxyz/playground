@@ -3,11 +3,13 @@ SimpleForm.setup do |config|
     hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     b.use :html5
     b.use :placeholder
+
     b.optional :maxlength
     b.optional :pattern
     b.optional :min_max
     b.optional :readonly
-    b.use :label_input
+
+    b.use :label_input, class: 'form-labels-above'
     b.use :hint,  wrap_with: { tag: :span, class: :hint }
     b.use :error, wrap_with: { tag: :span, class: :error }
   end
