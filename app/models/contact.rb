@@ -12,7 +12,23 @@ class Contact < ActiveRecord::Base
 
   default_scope { order(updated_at: :desc) }
 
+  after_save     :load_into_soulmate
+  before_destroy :remove_from_soulmate
+
   def full_name
     [first_name, last_name].join ' '
+  end
+
+  private
+
+  def load_into_soulmate
+    loader = Soulmate::Loader.new 'contacts'
+    loader.add('term' => full_name, 'id' => self.id, 'data' => {
+      'link' => Rails.application.routes.url_helpers.contact_path(self) } )
+  end
+
+  def remove_from_soulmate
+    loader = Soulmate::Loader.new 'contacts'
+    loader.remove 'id' => self.id
   end
 end
