@@ -2,31 +2,24 @@ $ = jQuery
 
 class Query
   constructor: (@minLength) ->
-    @value = ''
-    @lastValue = ''
+    @value       = ''
+    @lastValue   = ''
     @emptyValues = []
 
-  getValue: ->
-    @value
+  getValue: -> @value
 
   setValue: (newValue) ->
     @lastValue = @value
-    @value = newValue
+    @value     = newValue
 
-  hasChanged: ->
-    !(@value == @lastValue)
+  hasChanged: -> !(@value == @lastValue)
 
-  markEmpty: ->
-    @emptyValues.push( @value )
+  markEmpty: -> @emptyValues.push( @value )
 
-  willHaveResults: ->
-    @_isValid() && !@_isEmpty()
+  willHaveResults: -> @_isValid() && !@_isEmpty()
 
-  _isValid: ->
-    @value.length >= @minLength
+  _isValid: -> @value.length >= @minLength
 
-  # A value is empty if it starts with any of the values
-  # in the emptyValues array.
   _isEmpty: ->
     for empty in @emptyValues
       return true if @value[0...empty.length] == empty
@@ -34,17 +27,14 @@ class Query
 
 class Suggestion
   constructor: (index, @term, @data, @type) ->
-    @id = "#{index}-soulmate-suggestion"
+    @id    = "#{index}-soulmate-suggestion"
     @index = index
 
-  select: (callback) ->
-    callback( @term, @data, @type, @index, @id)
+  select: (callback) -> callback( @term, @data, @type, @index, @id)
 
-  focus: ->
-    @element().addClass( 'focus' )
+  focus: -> @element().addClass( 'focus' )
 
-  blur: ->
-    @element().removeClass( 'focus' )
+  blur: -> @element().removeClass( 'focus' )
 
   render: (callback) ->
     """
@@ -53,13 +43,12 @@ class Suggestion
       </li>
     """
 
-  element: ->
-    $('#' + @id)
+  element: -> $('#' + @id)
 
 class SuggestionCollection
   constructor: (@renderCallback, @selectCallback) ->
     @focusedIndex = -1
-    @suggestions = []
+    @suggestions  = []
 
   update: (results) ->
     @suggestions = []
@@ -78,13 +67,10 @@ class SuggestionCollection
     h = ''
 
     if @suggestions.length
-
       type = null
 
       for suggestion in @suggestions
-
         if suggestion.type != type
-
           h += @_renderTypeEnd( type ) unless type == null
           type = suggestion.type
           h += @_renderTypeStart()
@@ -95,8 +81,7 @@ class SuggestionCollection
 
     return h
 
-  count: ->
-    @suggestions.length
+  count: -> @suggestions.length
 
   focus: (i) ->
     if i < @count()
@@ -113,8 +98,7 @@ class SuggestionCollection
     index = parseInt( $(element).attr('id') )
     @focus( index )
 
-  focusNext: ->
-    @focus( @focusedIndex + 1 )
+  focusNext: -> @focus( @focusedIndex + 1 )
 
   focusPrevious: ->
     @focus( @focusedIndex - 1 )
@@ -123,10 +107,7 @@ class SuggestionCollection
     if @focusedIndex >= 0
       @suggestions[@focusedIndex].select( @selectCallback )
 
-  allBlured: ->
-    @focusedIndex == -1
-
-  # PRIVATE
+  allBlured: -> @focusedIndex == -1
 
   _renderTypeStart: ->
     """
@@ -141,15 +122,13 @@ class SuggestionCollection
       </li>
     """
 
-  _renderSuggestion: (suggestion) ->
-    suggestion.render( @renderCallback )
+  _renderSuggestion: (suggestion) -> suggestion.render( @renderCallback )
 
 class Soulmate
 
-  KEYCODES = {9: 'tab', 13: 'enter', 27: 'escape', 38: 'up', 40: 'down'}
+  KEYCODES = { 9: 'tab', 13: 'enter', 27: 'escape', 38: 'up', 40: 'down' }
 
   constructor: (@input, options) ->
-
     that = this
 
     {url, types, renderCallback, selectCallback, maxResults, minQueryLength, timeout} = options
@@ -174,8 +153,6 @@ class Soulmate
       click: (event) ->
         event.preventDefault()
         that.suggestions.selectFocused()
-
-        # Refocus the input field so it remains active after clicking a suggestion.
         that.input.focus()
     )
 
@@ -199,7 +176,6 @@ class Soulmate
 
       when 'enter'
         @suggestions.selectFocused()
-        # Submit the form if no input is focused.
         if @suggestions.allBlured()
           killEvent = false
 
@@ -222,31 +198,23 @@ class Soulmate
     if @query.hasChanged()
 
       if @query.willHaveResults()
-
         @suggestions.blurAll()
         @fetchResults()
-
       else
         @hideContainer()
 
   hideContainer: ->
     @suggestions.blurAll()
-
     @container.hide()
-
-    # Stop capturing any document click events.
     $(document).unbind('click.soulmate')
 
   showContainer: ->
     @container.show()
-
-    # Hide the container if the user clicks outside of it.
     $(document).bind('click.soulmate', (event) =>
       @hideContainer() unless @container.has( $(event.target) ).length
     )
 
   fetchResults: ->
-    # Cancel any previous requests if there are any.
     @xhr.abort() if @xhr?
 
     @xhr = $.ajax({
@@ -259,8 +227,7 @@ class Soulmate
         types: @types
         limit: @maxResults
       }
-      success: (data) =>
-        @update( data.results )
+      success: (data) => @update( data.results )
     })
 
   update: (results) ->
@@ -269,7 +236,6 @@ class Soulmate
     if @suggestions.count() > 0
       @container.html( $(@suggestions.render()) )
       @showContainer()
-
     else
       @query.markEmpty()
       @hideContainer()
