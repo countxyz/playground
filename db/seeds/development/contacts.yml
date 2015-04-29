@@ -1,0 +1,4 @@
+records:
+  - sprig_id: 1
+    first_name: 'Art'
+    user_id:    '<%= sprig_record(User, 1).id %>'

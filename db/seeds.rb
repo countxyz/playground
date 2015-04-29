@@ -24,10 +24,21 @@ def datetime_sample
 end
 
 100.times do
-  account = Account.create!(
+  account = Account.create(
     name:       FFaker::Company.name,
     active:     boolean_sample,
     website:    FFaker::Internet.domain_name,
     created_at: datetime_sample,
     user_id:    user )
+end
+
+200.times do
+  contact = Contact.create(
+    first_name: FFaker::Name.first_name,
+    last_name:  FFaker::Name.last_name,
+    company:    FFaker::Company.name,
+    created_at: datetime_sample,
+    user_id:    user )
+
+  contact.save!
 end

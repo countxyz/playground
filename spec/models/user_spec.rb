@@ -4,6 +4,7 @@ RSpec.describe User do
 
   describe 'associations' do
     it { is_expected.to have_many(:accounts).dependent :destroy }
+    it { is_expected.to have_many(:contacts).dependent :destroy }
     it { is_expected.to have_many(:tasks).dependent :destroy    }
   end
 

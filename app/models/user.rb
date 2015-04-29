@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
 
   has_many :accounts, dependent: :destroy
+  has_many :contacts, dependent: :destroy
   has_many :tasks,    dependent: :destroy
 
   EMAIL_REGEX = /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
