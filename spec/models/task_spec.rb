@@ -2,21 +2,21 @@ require 'rails_helper'
 
 RSpec.describe Task do
 
-  describe 'associations' do
-    it { should belong_to(:user) }
+  describe 'Associations' do
+    it { is_expected.to belong_to(:user) }
   end
 
-  describe 'title' do
-    it { should validate_length_of(:title).is_at_most(50)  }
-    it { should validate_presence_of(:title)               }
+  describe 'Lengths' do
+    it { is_expected.to validate_length_of(:title).is_at_most 50        }
+    it { is_expected.to validate_length_of(:description).is_at_most 200 }
   end
 
-  describe 'description' do
-    it { should validate_length_of(:description).is_at_most(200) }
-    it { should validate_presence_of(:description)               }
+  describe 'Presence' do
+    it { is_expected.to validate_presence_of :description }
+    it { is_expected.to validate_presence_of :title       }
   end
 
-  describe 'default scope' do
+  describe 'Default scope' do
     it 'returns only tasks that are incomplete' do
       complete_task   = create :task, complete: true
       incomplete_task = create :task, complete: false
@@ -25,8 +25,8 @@ RSpec.describe Task do
 
     it 'returns tasks in descending order by deadline date' do
       further_deadline = create :task, deadline: Date.today + 2.weeks
-      sooner_deadline  = create :task, deadline: Date.today + 1.week
-      expect(Task.all).to eq [sooner_deadline, further_deadline]
+      closer_deadline  = create :task, deadline: Date.today + 1.week
+      expect(Task.all).to eq [closer_deadline, further_deadline]
     end
   end
 end

@@ -3,6 +3,8 @@ class Account < ActiveRecord::Base
 
   belongs_to :user
 
+  has_one  :note, as: :noteable, dependent: :destroy
+
   has_many :emails, as: :emailable, dependent: :destroy
 
   friendly_id :name, use: :slugged
@@ -10,8 +12,7 @@ class Account < ActiveRecord::Base
   validates_presence_of :name
 
   validates_length_of :name,    maximum: 50
-  validates_length_of :notes,   maximum: 1000, allow_blank: true
-  validates_length_of :website, in: 6..50,     allow_blank: true
+  validates_length_of :website, in: 6..50,  allow_blank: true
 
   validates_uniqueness_of :name
 

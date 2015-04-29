@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429005019) do
+ActiveRecord::Schema.define(version: 20150429022133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20150429005019) do
     t.datetime "updated_at",                null: false
     t.string   "name",                      null: false
     t.string   "website",    default: "",   null: false
-    t.text     "notes",      default: "",   null: false
     t.boolean  "active",     default: true, null: false
     t.string   "slug",                      null: false
     t.integer  "user_id"
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 20150429005019) do
     t.string   "first_name",              null: false
     t.string   "last_name",  default: "", null: false
     t.string   "company",    default: "", null: false
-    t.text     "notes",      default: "", null: false
     t.integer  "user_id"
   end
 
@@ -55,6 +53,16 @@ ActiveRecord::Schema.define(version: 20150429005019) do
 
   add_index "emails", ["emailable_type", "emailable_id"], name: "index_emails_on_emailable_type_and_emailable_id", using: :btree
 
+  create_table "notes", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.text     "note",          null: false
+    t.integer  "noteable_id"
+    t.string   "noteable_type"
+  end
+
+  add_index "notes", ["noteable_type", "noteable_id"], name: "index_notes_on_noteable_type_and_noteable_id", using: :btree
+
   create_table "tasks", force: :cascade do |t|
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -66,6 +74,8 @@ ActiveRecord::Schema.define(version: 20150429005019) do
     t.integer  "user_id"
   end
 
+  add_index "tasks", ["complete"], name: "index_tasks_on_complete", using: :btree
+  add_index "tasks", ["created_at"], name: "index_tasks_on_created_at", using: :btree
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|

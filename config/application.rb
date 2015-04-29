@@ -14,6 +14,7 @@ Bundler.require(*Rails.groups)
 module Playground
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
+    config.autoload_paths += Dir["#{Rails.root}/app/models/polymorphic"]
     config.time_zone = 'UTC'
   end
 end

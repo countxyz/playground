@@ -9,6 +9,9 @@ class CreateTasks < ActiveRecord::Migration
       t.boolean  :complete,    default: true, null: false
       t.datetime :completed_at
 
+      t.index :created_at, order: :asc
+      t.index :complete,   where: false
+
       t.references :user, index: true
     end
   end
