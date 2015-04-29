@@ -2,12 +2,10 @@
 
 section#sessions-new
   = simple_form_for :session, url: signin_path,
-  defaults: { wrapper_html: { class: 'form-inputs' } } do |f|
+    defaults: { wrapper_html: { class: 'form-inputs' } } do |f|
     = f.input :email
     = f.input :password
 
-    = f.button :submit, 'Sign In'
-
     nav.form-actions
       = link_to 'Sign Up', new_user_path
-      = link_to 'Sign In', root_path
+      = f.button :submit, 'Sign In'
