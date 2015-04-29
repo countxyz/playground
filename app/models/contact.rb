@@ -5,10 +5,14 @@ class Contact < ActiveRecord::Base
 
   has_many :emails, as: :emailable, dependent: :destroy
 
-  validates_presence_of :first_name
+  validates_presence_of :first_name, :last_name
 
-  validates_length_of :first_name,          maximum: 50
-  validates_length_of :last_name, :company, maximum: 50,   allow_blank: true
+  validates_length_of :first_name, :last_name, maximum: 50
+  validates_length_of :company,                maximum: 50,   allow_blank: true
 
   default_scope { order(updated_at: :desc) }
+
+  def full_name
+    [first_name, last_name].join ' '
+  end
 end

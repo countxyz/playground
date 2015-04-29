@@ -16,6 +16,7 @@ RSpec.describe Contact do
 
   describe 'Presence' do
     it { is_expected.to validate_presence_of :first_name }
+    it { is_expected.to validate_presence_of :last_name  }
   end
 
   describe 'Default scope' do
@@ -23,6 +24,12 @@ RSpec.describe Contact do
       older_contact = create :contact, updated_at: 2.days.ago
       newer_contact = create :contact, updated_at: 1.day.ago
       expect(Contact.all).to eq [newer_contact, older_contact]
+    end
+  end
+
+  describe 'Contact name' do
+    it 'joins first and last_name' do
+      expect(build(:contact).full_name).to eq 'a a'
     end
   end
 end

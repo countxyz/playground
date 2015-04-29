@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount MagicLamp::Genie,     at: '/magic_lamp' if defined?(MagicLamp)
 
   resources :accounts, only: %i(index show)
+  resources :contacts, only: %i(index show)
   resources :tasks,    only: %i(index)
   resources :users,    only: %i(new create show)
 

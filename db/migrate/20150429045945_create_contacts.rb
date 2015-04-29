@@ -4,7 +4,7 @@ class CreateContacts < ActiveRecord::Migration
       t.timestamps null: false
 
       t.string :first_name,              null: false
-      t.string :last_name,  default: '', null: false
+      t.string :last_name,               null: false
       t.string :company,    default: '', null: false
 
       t.index :created_at, order: :desc
