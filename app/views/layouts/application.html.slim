@@ -11,12 +11,12 @@ html lang='en'
     = csrf_meta_tags
 
   body
+    section.notifications
+      = render 'layouts/notifications'
+
     .container
       header.site-header role='banner'
         = render 'layouts/header'
-
-      section.notifications
-        = render 'layouts/notifications'
 
       main.content role='main'
         = yield

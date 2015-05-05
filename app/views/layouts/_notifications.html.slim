@@ -1,2 +1,4 @@
-p.notification = notice if notice
-p.notification = alert if alert
+- if notice
+  .notification.notice = notice
+- if alert
+  .notification.alert = alert
