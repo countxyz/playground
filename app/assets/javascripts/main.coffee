@@ -1,6 +1,11 @@
 #= require jquery
 #= require jquery_ujs
-#= require vendor/jquery.soulmate
+#= require soulmate/soulmateHelper
+#= require soulmate/soulmateQuery
+#= require soulmate/soulmateSuggestion
+#= require soulmate/soulmateSuggestionCollection
+#= require soulmate/soulmate
+
 #= require turbolinks
 
 #= require notificationFlash
