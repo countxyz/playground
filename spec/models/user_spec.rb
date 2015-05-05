@@ -3,9 +3,16 @@ require 'rails_helper'
 RSpec.describe User do
 
   describe 'Associations' do
+    it { is_expected.to have_one(:fax_phone).dependent :destroy }
+
     it { is_expected.to have_many(:accounts).dependent :destroy }
     it { is_expected.to have_many(:contacts).dependent :destroy }
     it { is_expected.to have_many(:tasks).dependent :destroy    }
+
+    it { is_expected.to have_many(:home_phones).dependent :destroy   }
+    it { is_expected.to have_many(:mobile_phones).dependent :destroy }
+
+    it { is_expected.to have_many(:phones).dependent :destroy }
   end
 
   describe 'Formats' do

@@ -5,7 +5,12 @@ class Account < ActiveRecord::Base
 
   has_one  :note, as: :noteable, dependent: :destroy
 
+  has_many :fax_phones,    as: :phoneable, dependent: :destroy
+  has_many :home_phones,   as: :phoneable, dependent: :destroy
+  has_many :mobile_phones, as: :phoneable, dependent: :destroy
+
   has_many :emails, as: :emailable, dependent: :destroy
+  has_many :phones, as: :phoneable, dependent: :destroy
 
   friendly_id :name, use: %w(slugged finders)
 

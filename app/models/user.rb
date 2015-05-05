@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
   attr_accessor :password
 
+  has_one :fax_phone, as: :phoneable, dependent: :destroy
+
   has_many :accounts, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_many :tasks,    dependent: :destroy
+
+  has_many :home_phones,   as: :phoneable, dependent: :destroy
+  has_many :mobile_phones, as: :phoneable, dependent: :destroy
+
+  has_many :phones, as: :phoneable, dependent: :destroy
 
   EMAIL_REGEX = /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 

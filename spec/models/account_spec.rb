@@ -4,8 +4,15 @@ RSpec.describe Account do
 
   describe 'Associations' do
     it { is_expected.to belong_to :user }
-    it { is_expected.to have_one(:note).dependent :destroy    }
+
+    it { is_expected.to have_one(:note).dependent :destroy }
+
+    it { is_expected.to have_many(:fax_phones).dependent :destroy    }
+    it { is_expected.to have_many(:home_phones).dependent :destroy   }
+    it { is_expected.to have_many(:mobile_phones).dependent :destroy }
+
     it { is_expected.to have_many(:emails).dependent :destroy }
+    it { is_expected.to have_many(:phones).dependent :destroy }
   end
 
   describe 'Lengths' do
