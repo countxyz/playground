@@ -6,6 +6,7 @@ class Contact < ActiveRecord::Base
   has_many :fax_phones,    as: :phoneable, dependent: :destroy
   has_many :home_phones,   as: :phoneable, dependent: :destroy
   has_many :mobile_phones, as: :phoneable, dependent: :destroy
+  has_many :office_phones, as: :phoneable, dependent: :destroy
 
   has_many :emails, as: :emailable, dependent: :destroy
   has_many :phones, as: :phoneable, dependent: :destroy

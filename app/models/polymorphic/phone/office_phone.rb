@@ -1,3 +1,3 @@
-class FaxPhone < Phone
+class OfficePhone < Phone
   include Extensionable
 end
