@@ -1,10 +1,6 @@
 - provide :title, 'Profile'
 
 section#user-profile
-  nav#user-site-navigation role='navigation'
-    ul
-      li = link_to 'My Tasks', tasks_path
-
   .component
     .overlay
       .overlay-inner
@@ -12,10 +8,6 @@ section#user-profile
     = image_tag 'image-editor/bill-lumbergh.jpg', class: 'resize-image'
 
     button.btn-crop.js-crop Crop
-
-  section#user-info
-    ul
-      li = @user.email
 
 = javascript_include_tag 'imageEditor/imageEditorHelper'
 = javascript_include_tag 'imageEditor/imageEditor'

@@ -1,13 +1,5 @@
 #user-profile {
   @include span-columns(12);
   @include omega();
-
   height: 100%;
-
-  #user-site-navigation {
-    @include span-columns(12);
-  }
-
-  #user-info {
-  }
 }
