@@ -1,18 +1,20 @@
 .site-footer {
-  background: black;
+  background-color: black;
   color: white;
 
   #footer-content {
     @include span-columns(12);
     @include omega();
-
     height: 100%;
 
     #copyright {
       @include span-columns(4);
       @include shift(1);
-
       font-size: 0.8em;
+
+      a {
+        color: aqua;
+      }
     }
 
     #footer-links {

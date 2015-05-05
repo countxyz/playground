@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy', as: 'signout'
   get    'signup',  to: 'users#new'
 
-  root 'sessions#new'
+  root 'users#show'
 end
