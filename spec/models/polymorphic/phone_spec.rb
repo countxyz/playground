@@ -12,4 +12,8 @@ RSpec.describe Phone do
       in_array %w( fax home mobile office toll )
     end
   end
+
+  describe 'Numericality' do
+    it { is_expected.to validate_numericality_of(:phone_number).only_integer }
+  end
 end
