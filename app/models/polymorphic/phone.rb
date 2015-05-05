@@ -1,7 +1,7 @@
 class Phone < ActiveRecord::Base
   belongs_to :phoneable, polymorphic: true
 
-  PHONE_TYPES = %w( fax home mobile office toll )
+  PHONE_TYPES = %w( FaxPhone HomePhone MobilePhone OfficePhone TollPhone )
 
   validates_inclusion_of :type, in: PHONE_TYPES
 

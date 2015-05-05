@@ -11,6 +11,7 @@ RSpec.describe Account do
     it { is_expected.to have_many(:home_phones).dependent :destroy   }
     it { is_expected.to have_many(:mobile_phones).dependent :destroy }
     it { is_expected.to have_many(:office_phones).dependent :destroy }
+    it { is_expected.to have_many(:toll_phones).dependent :destroy   }
 
     it { is_expected.to have_many(:emails).dependent :destroy }
     it { is_expected.to have_many(:phones).dependent :destroy }

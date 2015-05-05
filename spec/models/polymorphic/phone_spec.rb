@@ -9,7 +9,7 @@ RSpec.describe Phone do
   describe 'Inclusions' do
     it do
       is_expected.to validate_inclusion_of(:type).
-      in_array %w( fax home mobile office toll )
+      in_array %w( FaxPhone HomePhone MobilePhone OfficePhone TollPhone )
     end
   end
 

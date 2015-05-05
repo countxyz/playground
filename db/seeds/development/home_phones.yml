@@ -1,0 +1,4 @@
+records:
+  - sprig_id:     1
+    phone_number: '7185555555'
+    user_id:      '<%= sprig_record(User, 1).id %>'

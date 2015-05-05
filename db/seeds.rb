@@ -1,44 +1,33 @@
-User.destroy_all
-Task.unscoped.destroy_all
 Account.unscoped.destroy_all
+Email.destroy_all
+Phone.destroy_all
+Task.unscoped.destroy_all
+User.destroy_all
 
 include Sprig::Helpers
+include SeedHelper
 
 sprig [User, Task]
 
-user = User.create!(
-  email:                 'user@example.com',
-  first_name:            'Bill',
-  last_name:             'Lumbergh',
-  password:              'password',
-  password_confirmation: 'password')
-
+user = seed_user 'user@example.com', 'Bill', 'Lumbergh'
 user.save
 
-def boolean_sample
-  [true, true, false].sample
-end
-
-def datetime_sample
-  rand(2.years).seconds.ago
-end
-
 100.times do
-  account = Account.create(
-    name:       FFaker::Company.name,
-    active:     boolean_sample,
-    website:    FFaker::Internet.domain_name,
-    created_at: datetime_sample,
-    user_id:    user )
+  account = seed_account(
+    FFaker::Company.name, FFaker::Internet.domain_name, user )
+  account.save
+
+  seed_email FFaker::Internet.email, 'Account', account.id
+
+  2.times { seed_phone 'Account', account.id }
 end
 
 200.times do
-  contact = Contact.create(
-    first_name: FFaker::Name.first_name,
-    last_name:  FFaker::Name.last_name,
-    company:    FFaker::Company.name,
-    created_at: datetime_sample,
-    user_id:    user )
+  contact = seed_contact(FFaker::Name.first_name, FFaker::Name.last_name,
+    FFaker::Company.name, user.id )
+  contact.save
 
-  contact.save!
+  seed_email FFaker::Internet.email, 'Contact', contact.id
+
+  2.times { seed_phone 'Contact', contact.id }
 end
