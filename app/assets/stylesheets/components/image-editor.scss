@@ -73,49 +73,31 @@
 .resize-container:active img { outline: 2px dashed rgba(222,60,80,.9); }
 
 .resize-handle-ne,
-.resize-handle-ne,
 .resize-handle-se,
 .resize-handle-nw,
 .resize-handle-sw {
   @include size(10px);
-
-  background: rgba(222,60,80,.9);
+  background: rgba(222, 60, 80, .9);
   display: block;
-  position: absolute;
   z-index: 999;
 }
 
 .resize-handle-nw {
+  @include position(absolute, -5px null null -5px);
   cursor: nw-resize;
-  left: -5px;
-  top: -5px;
 }
 
 .resize-handle-sw {
-  bottom: -5px;
+  @include position(absolute, null null -5px -5px);
   cursor: sw-resize;
-  left: -5px;
 }
 
 .resize-handle-ne {
+  @include position(absolute, -5px -5px null null);
   cursor: ne-resize;
-  right: -5px;
-  top: -5px;
 }
 
 .resize-handle-se {
-  bottom: -5px;
+  @include position(absolute, null -5px -5px null);
   cursor: se-resize;
-  right: -5px;
-}
-
-.btn-crop {
-  @include position(absolute, null 5px 5px null);
-  background-color: rgb(222,60,80);
-  border-radius: 5px;
-  border: none;
-  color: #FFF;
-  padding: 6px 10px;
-  vertical-align: bottom;
-  z-index: 3;
 }
