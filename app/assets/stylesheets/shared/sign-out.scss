@@ -4,7 +4,7 @@
   height: 100%;
 
   a {
-    @include span-columns(2);
-    @include shift(10);
+    @include span-columns(3);
+    @include shift(9);
   }
 }
