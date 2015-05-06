@@ -26,10 +26,9 @@ describe 'ImageEditor', ->
     describe 'Saving original container state', ->
       it 'saves the original container width', ->
 
-
-    # it 'resizes the image container', ->
-    #   spyEvent = spyOnEvent '.resize-handle', 'mousedown'
-    #   $('.resize-handle').mousedown (event) -> event.preventDefault()
-    #   $('.resize-handle').mousedown
-    #   expect('mousedown').toHaveBeenPreventedOn '.resize-handle'
-    #   expect(spyEvent).toHaveBeenPrevented()
+    it 'resizes the image container', ->
+      spyEvent = spyOnEvent '.resize-handle', 'mousedown'
+      $('.resize-handle').mousedown (event) -> event.preventDefault()
+      $('.resize-handle').mousedown
+      expect('mousedown').toHaveBeenPreventedOn '.resize-handle'
+      expect(spyEvent).toHaveBeenPrevented()

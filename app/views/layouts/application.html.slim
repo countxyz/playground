@@ -4,6 +4,7 @@ html lang='en'
   head
     meta charset='utf-8' content='template language' http-equiv='content-type'
     title = full_title yield :title
+    = favicon_link_tag 'site/thoughtbot-logo-red.ico'
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Merriweather'
     = stylesheet_link_tag 'application', \
       media: 'all', 'data-turbolinks-track' => true
