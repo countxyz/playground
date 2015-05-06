@@ -8,7 +8,23 @@ section#header-content
   nav#header-links role='navigation'
     ul
       - if signed_in?
-        li = link_to 'Profile',  profile_path
-        li = link_to 'Accounts', accounts_path
-        li = link_to 'Contacts', contacts_path
-        li = link_to 'Tasks',    tasks_path
+
+        li = link_to profile_path do
+          button.button.button--itzel.button--text-thick role='navigation'
+            i.button__icon.icon.icon-cart
+            span Profile
+
+        li = link_to accounts_path do
+          button.button.button--itzel.button--text-thick role='navigation'
+            i.button__icon.icon.icon-cart
+            span Accounts
+
+        li = link_to contacts_path do
+          button.button.button--itzel.button--text-thick role='navigation'
+            i.button__icon.icon.icon-cart
+            span Contacts
+
+        li = link_to tasks_path do
+          button.button.button--itzel.button--text-thick role='navigation'
+            i.button__icon.icon.icon-cart
+            span Tasks
