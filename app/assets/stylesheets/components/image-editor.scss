@@ -1,9 +1,9 @@
 .component {
   background: url(image-editor/gridme.png) repeat center center;
-  border: 3px solid #49708A;
+  border: 3px solid black;
   height: 500px;
   margin: 0 auto;
-  max-width: 901px;
+  width: 500px;
   overflow: hidden;
   padding: 4em;
   position: relative;
@@ -11,7 +11,7 @@
   .overlay {
     @include position(absolute, 50% null null 50%);
     @include size(200px);
-    border: solid 2px rgba(222,60,80,.9);
+    border: solid 2px $overlay-red;
     box-sizing: content-box;
     margin-left: -100px;
     margin-top: -100px;
@@ -20,28 +20,27 @@
 
     &:before, &:after {
       @include size(204px 40px);
-      border-left:  dashed 2px rgba(222,60,80,.9);
-      border-right: dashed 2px rgba(222,60,80,.9);
+      border-left:  dashed 2px $overlay-red;
+      border-right: dashed 2px $overlay-red;
       content: '';
       display: block;
-      position: absolute;
     }
 
     &:before {
       @include margin(-40px null null -2px);
-      top: 0;
+      @include position(absolute, 0 null null null);
     }
 
     &:after {
       @include margin(null null -40px -2px);
-      bottom: 0;
+      @include position(absolute, null null 0 null);
     }
 
     .overlay-inner {
       &:before, &:after {
         @include size(40px 204px);
-        border-bottom: dashed 2px rgba(222,60,80,.9);
-        border-top: dashed 2px rgba(222,60,80,.9);
+        border-bottom: dashed 2px $overlay-red;
+        border-top: dashed 2px $overlay-red;
         content: '';
         display: block;
         position: absolute;
@@ -67,17 +66,17 @@
   }
 }
 
-.resize-container img { display: block }
+.resize-container img { display: block; }
 
 .resize-container:hover img,
-.resize-container:active img { outline: 2px dashed rgba(222,60,80,.9); }
+.resize-container:active img { outline: 2px dashed $overlay-red; }
 
 .resize-handle-ne,
 .resize-handle-se,
 .resize-handle-nw,
 .resize-handle-sw {
   @include size(10px);
-  background: rgba(222, 60, 80, .9);
+  background: $overlay-red;
   display: block;
   z-index: 999;
 }

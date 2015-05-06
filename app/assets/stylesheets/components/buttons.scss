@@ -1,13 +1,13 @@
 .btn-crop {
   @include position(absolute, null 5px 5px null);
-  background: aqua;
+  background: black;
   border-radius: 5px;
   border: 1px solid;
-  color: inherit;
+  color: white;
   display: block;
   float: left;
   margin: 1em;
-  width: 245px;
+  width: 200px;
   overflow: hidden;
   padding: 6px 10px;
   vertical-align: middle;
@@ -20,13 +20,10 @@
   transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 
   &:before {
+    @include position(absolute, 0 null null 0);
+    @include size(150% 100%);
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150%;
-    height: 100%;
-    background: #37474f;
+    background: #37474F;
     z-index: -1;
     -webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
     transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
@@ -37,12 +34,12 @@
   }
 
   &:hover {
-    color: #fff;
-    border-color: #3f51b5;
+    color: white;
+    border-color: black;
 
     &:before {
       opacity: 1;
-      background-color: #3f51b5;
+      background-color: $overlay-red;
       -webkit-transform: rotate3d(0, 0, 1, 0deg);
       transform: rotate3d(0, 0, 1, 0deg);
       -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
