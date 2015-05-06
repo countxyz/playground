@@ -14,7 +14,7 @@ class Soulmate.query
 
   hasChanged: -> !(@value == @lastValue)
 
-  markEmpty: -> @emptyValues.push( @value )
+  markEmpty: -> @emptyValues.push @value
 
   willHaveResults: -> @_isValid() && !@_isEmpty()
 
@@ -22,5 +22,5 @@ class Soulmate.query
 
   _isEmpty: ->
     for empty in @emptyValues
-      return true if @value[0...empty.length] == empty
-    return false
+      true if @value[0...empty.length] == empty
+    false

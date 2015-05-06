@@ -11,7 +11,8 @@ class Soulmate.suggestionCollection
 
     for type, typeResults of results
       for result in typeResults
-        @suggestions.push( new Soulmate.suggestion(i, result.term, result.data, type) )
+        @suggestions.push(
+          new Soulmate.suggestion(i, result.term, result.data, type) )
         i += 1
 
   blurAll: ->
@@ -26,13 +27,13 @@ class Soulmate.suggestionCollection
 
       for suggestion in @suggestions
         if suggestion.type != type
-          h += @_renderTypeEnd( type ) unless type == null
+          h += @_renderTypeEnd(type) unless type == null
           type = suggestion.type
           h += @_renderTypeStart()
 
-        h += @_renderSuggestion( suggestion )
+        h += @_renderSuggestion suggestion
 
-      h += @_renderTypeEnd( type )
+      h += @_renderTypeEnd type
 
     return h
 
@@ -50,17 +51,16 @@ class Soulmate.suggestionCollection
         @focusedIndex = i
 
   focusElement: (element) ->
-    index = parseInt( $(element).attr('id') )
-    @focus( index )
+    index = parseInt $(element).attr('id')
+    @focus index
 
-  focusNext: -> @focus( @focusedIndex + 1 )
+  focusNext: -> @focus @focusedIndex + 1
 
-  focusPrevious: ->
-    @focus( @focusedIndex - 1 )
+  focusPrevious: -> @focus @focusedIndex - 1
 
   selectFocused: ->
     if @focusedIndex >= 0
-      @suggestions[@focusedIndex].select( @selectCallback )
+      @suggestions[@focusedIndex].select @selectCallback
 
   allBlured: -> @focusedIndex == -1
 
@@ -77,4 +77,4 @@ class Soulmate.suggestionCollection
       </li>
     """
 
-  _renderSuggestion: (suggestion) -> suggestion.render( @renderCallback )
+  _renderSuggestion: (suggestion) -> suggestion.render @renderCallback

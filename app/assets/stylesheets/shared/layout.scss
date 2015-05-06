@@ -1,28 +1,19 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+html, body { height: 100%; }
 
 .container {
   @include outer-container;
   height: 100%;
-  position: relative;
 }
 
-.site-header, .content, .site-footer {
+main,
+.site-header,
+.site-footer,
+.sign-out {
   @include span-columns(12);
   @include omega();
 }
 
+main         { height: 65%; }
 .site-header { height: 15%; }
-
-.content {
-  height: 85%;
-  padding-bottom: 7em;
-}
-
-.site-footer {
-  @include position(absolute, null null 0 0);
-  height: 7em;
-}
+.sign-out    { height: 5%; }
+.site-footer { height: 15%; }

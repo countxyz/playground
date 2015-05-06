@@ -18,8 +18,11 @@ html lang='en'
       header.site-header role='banner'
         = render 'layouts/header'
 
-      main.content role='main'
+      main role='main'
         = yield
+
+      nav.sign-out role='navigation'
+        = render 'layouts/sign_out' if signed_in?
 
       footer.site-footer role='contentinfo'
         = render 'layouts/footer'

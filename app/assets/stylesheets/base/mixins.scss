@@ -15,13 +15,6 @@
   box-shadow:$horizontal-offset $vertical-offset $blur-radius $color;
 }
 
-@mixin vertical-gradient($top-color, $bottom-color) {
-  background: $top-color;
-  background: -moz-linear-gradient(top, $top-color 0, $bottom-color 100%);
-  background: -webkit-gradient(linear, 0 0, 0 100%, from($top-color),
-    to($bottom-color));
-}
-
 @mixin clearfix {
   zoom: 1;
   &:before, &:after {
@@ -32,4 +25,11 @@
   &:after {
     clear: both;
   }
+}
+
+@mixin vertical-gradient($top-color, $bottom-color) {
+  background: $top-color;
+  background: -moz-linear-gradient(top, $top-color 0, $bottom-color 100%);
+  background: -webkit-gradient(linear, 0 0, 0 100%, from($top-color),
+    to($bottom-color));
 }

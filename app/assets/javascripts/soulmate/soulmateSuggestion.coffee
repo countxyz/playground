@@ -5,11 +5,11 @@ class Soulmate.suggestion
     @id    = "#{index}-soulmate-suggestion"
     @index = index
 
-  select: (callback) -> callback( @term, @data, @type, @index, @id)
+  select: (callback) -> callback @term, @data, @type, @index, @id
 
-  focus: -> @element().addClass( 'focus' )
+  focus: -> @element().addClass 'focus'
 
-  blur: -> @element().removeClass( 'focus' )
+  blur: -> @element().removeClass 'focus'
 
   render: (callback) ->
     """

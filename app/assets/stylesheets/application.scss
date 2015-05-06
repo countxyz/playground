@@ -2,18 +2,23 @@
 @import 'bourbon';
 @import 'base/grid-settings';
 @import 'neat';
+
 @import 'base/helpers';
 @import 'base/variables';
 @import 'base/mixins';
 @import 'base/defaults';
+
 @import 'components/notifications';
 @import 'components/forms';
 @import 'components/image-editor';
 @import 'components/soulmate';
 @import 'components/context-menu';
+
 @import 'shared/layout';
 @import 'shared/header';
+@import 'shared/sign-out';
 @import 'shared/footer';
+
 @import 'main/landing';
 @import 'main/signup';
 @import 'main/profile';
