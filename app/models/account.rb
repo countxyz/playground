@@ -35,7 +35,7 @@ class Account < ActiveRecord::Base
 
   def load_into_soulmate
     loader = Soulmate::Loader.new 'accounts'
-    loader.add('term' => name, 'id' => self.id, 'data' => {
+    loader.add('term' => self.name, 'id' => self.id, 'data' => {
       'link' => Rails.application.routes.url_helpers.account_path(self) } )
   end
 
