@@ -1,19 +1,39 @@
-html, body { height: 100%; }
-
-.container {
+body {
   @include outer-container;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-main,
-.site-header,
-.site-footer,
+.site-header {
+  @include span-columns(12);
+  display: flex;
+  height: 5vh;
+}
+
+.site-content {
+  display: flex;
+  flex: 1;
+
+  main {
+    @include span-columns(12);
+    display: flex;
+    flex: 1;
+  }
+
+  .site-navigation {
+    flex: 0 0 12em;
+  }
+}
+
 .sign-out {
   @include span-columns(12);
-  @include omega();
+  display: flex;
+  height: 10vh
 }
 
-main         { height: 65%; }
-.site-header { height: 10%; }
-.sign-out    { height: 10%; }
-.site-footer { height: 15%; }
+.site-footer {
+  @include span-columns(12);
+  display: flex;
+  height: 15vh;
+}

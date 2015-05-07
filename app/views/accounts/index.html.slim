@@ -7,19 +7,9 @@ section#accounts
     ul#accounts-list
       = render @accounts
 
-.button-wrap
-  button.trigger data-dialog="somedialog" Open Dialog
-
-#somedialog.dialog
-  .dialog__overlay
-  .dialog__content
-    h2 Howdy, I'm a dialog box
-    div
-      <button class='action' data-dialog-close>Close</button>
+= javascript_include_tag 'modal'
 
 coffee:
-  do ->
-    dlgtrigger = document.querySelector('[data-dialog]')
-    somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog'))
-    dlg = new DialogFx(somedialog)
-    dlgtrigger.addEventListener 'click', dlg.toggle.bind(dlg)
+  $ ->
+    $('.delete_row').on 'ajax:success', ->
+      $('#somedialog').removeClass('dialog--open')

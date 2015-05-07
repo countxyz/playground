@@ -1,15 +1,9 @@
 #header-content {
   @include span-columns(12);
-  @include omega();
-  height: 100%;
 
   #site-search {
     @include span-columns(3);
-    padding: 0.4em 0 0 0.4em;
-  }
-
-  #header-links {
-    @include span-columns(3);
     @include shift(6);
+    padding-top: 0.4em;
   }
 }

@@ -1,5 +1,3 @@
-window.ImageEditor ?= {}
-
 ImageEditor.helper = {
 
   resizeHandles: (element) ->

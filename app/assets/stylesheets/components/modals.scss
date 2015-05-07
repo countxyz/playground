@@ -1,28 +1,28 @@
 .dialog, .dialog__overlay {
-  width: 100%;
-  height: 100%;
+  @include size(100%);
   top: 0;
   left: 0;
+  z-index: 1000;
 }
 
 .dialog {
-  position: fixed;
+  align-items: center;
   display: -webkit-flex;
   display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-justify-content: center;
   justify-content: center;
   pointer-events: none;
+  position: fixed;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
 }
 
 .dialog__overlay {
-  position: absolute;
-  z-index: 1;
-  background: rgba(55, 58, 71, 0.9);
+  background: $modal-overlay-color;
   opacity: 0;
-  -webkit-transition: opacity 0.3s;
+  position: absolute;
   transition: opacity 0.3s;
+  z-index: 1;
+  -webkit-transition: opacity 0.3s;
   -webkit-backface-visibility: hidden;
 }
 
@@ -32,15 +32,15 @@
 }
 
 .dialog__content {
-  width: 50%;
+  background: $site-white;
   max-width: 560px;
   min-width: 290px;
-  background: #fff;
-  padding: 4em;
-  text-align: center;
-  position: relative;
-  z-index: 5;
   opacity: 0;
+  padding: 4em;
+  position: relative;
+  text-align: center;
+  width: 50%;
+  z-index: 1000;
 }
 
 .dialog--open .dialog__content { pointer-events: auto; }

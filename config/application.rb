@@ -20,6 +20,7 @@ module Playground
       "#{Rails.root}/app/models/polymorphic",
       "#{Rails.root}/app/models/polymorphic/phone" ]
 
-    config.time_zone = 'UTC'
+    config.react.addons = true
+    config.time_zone    = 'UTC'
   end
 end

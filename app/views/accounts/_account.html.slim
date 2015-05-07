@@ -1,1 +1,19 @@
-li = link_to account.name, account
+= content_tag_for :li, account, 'data-id' => account.id do
+  section.account-item-listing
+    nav.account-name
+      = link_to account.name, account
+
+    section.account-actions
+      <button class='btn-delete trigger delete_row' data-dialog='somedialog'>
+        i.icon.btn-delete-icon.icon-trash
+
+  #somedialog.dialog
+    .dialog__overlay
+    .dialog__content
+      h2 Are you sure???
+      h3 NO TAKEBACKS!!!
+      .account-delete-actions
+        <button class='action' data-dialog-close>Close</button>
+        = link_to account, method: :delete, id: account, class: 'removable' do
+          <button class='action btn-delete' data-dialog-close>
+            i.icon.btn-delete-icon.icon-trash

@@ -4,6 +4,3 @@ section#header-content
       = form_tag do
         = text_field_tag 'search', nil, placeholder: 'Search',
           autocomplete: :off
-
-  nav#header-links role='navigation'
-    = render 'layouts/navigation_links' if signed_in?

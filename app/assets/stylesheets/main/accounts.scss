@@ -1,12 +1,13 @@
 #accounts {
   @include span-columns(12);
-  @include omega();
-  height: 100%;
+
+  h1 {
+    @include span-columns(5);
+    @include shift(1);
+  }
 
   #accounts-content {
     @include span-columns(12);
-    @include omega();
-    height: 100%;
 
     #accounts-list {
       @include span-columns(10);
@@ -15,19 +16,31 @@
       li {
         border-bottom: solid 1px black;
         padding-top: 1em;
+
+        .account-item-listing {
+          display: flex;
+          justify-content: space-between;
+        }
       }
     }
   }
 }
 
+.account-delete-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
 #account-profile {
   @include span-columns(12);
-  @include omega();
-  height: 100%;
+
+  h1 {
+    @include span-columns(5);
+    @include shift(1);
+  }
 
   #account-profile-content {
     @include span-columns(10);
     @include shift(1);
-    height: 100%;
   }
 }

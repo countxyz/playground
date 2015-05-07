@@ -1,4 +1,5 @@
 class Contact < ActiveRecord::Base
+
   belongs_to :user
 
   has_one :note, as: :noteable, dependent: :destroy
@@ -17,6 +18,8 @@ class Contact < ActiveRecord::Base
   validates_length_of :company,                maximum: 50,   allow_blank: true
 
   default_scope { order(updated_at: :desc) }
+
+  scope :sorted, ->{ order(first_name: :asc) }
 
   after_save     :load_into_soulmate
   before_destroy :remove_from_soulmate

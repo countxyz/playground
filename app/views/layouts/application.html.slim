@@ -5,9 +5,11 @@ html lang='en'
     meta charset='utf-8' content='template language' http-equiv='content-type'
     title = full_title yield :title
     = favicon_link_tag 'site/thoughtbot-logo-red.ico'
+
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Merriweather'
     = stylesheet_link_tag 'application', \
       media: 'all', 'data-turbolinks-track' => true
+
     = javascript_include_tag 'main', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
@@ -15,15 +17,18 @@ html lang='en'
     section.notifications
       = render 'layouts/notifications'
 
-    .container
-      header.site-header role='banner'
-        = render 'layouts/header'
+    header.site-header role='banner'
+      = render 'layouts/header'
 
+    .site-content
       main role='main'
         = yield
 
-      nav.sign-out role='navigation'
-        = render 'layouts/sign_out' if signed_in?
+      nav.site-navigation role='navigation'
+        = render 'layouts/navigation_links' if signed_in?
 
-      footer.site-footer role='contentinfo'
-        = render 'layouts/footer'
+    nav.sign-out role='navigation'
+      = render 'layouts/sign_out' if signed_in?
+
+    footer.site-footer role='contentinfo'
+      = render 'layouts/footer'

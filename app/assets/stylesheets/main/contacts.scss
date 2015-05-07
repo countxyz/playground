@@ -1,0 +1,9 @@
+#contacts {
+  @include span-columns(12);
+  @include omega();
+
+  #contacts-content {
+    @include span-columns(12);
+    @include omega();
+  }
+}

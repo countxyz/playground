@@ -1,5 +1,8 @@
 #user-profile {
   @include span-columns(12);
-  @include omega();
-  height: 100%;
+
+  h1 {
+    @include span-columns(5);
+    @include shift(1);
+  }
 }

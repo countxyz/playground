@@ -1,5 +1,3 @@
-window.ContextMenu ?= {}
-
 ContextMenu.helper = {
 
   clickInsideElement: (e, className) ->

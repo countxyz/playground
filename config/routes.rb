@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount MagicLamp::Genie,     at: '/magic_lamp'   if defined?(MagicLamp)
   mount Soulmate::Server,     at: '/autocomplete'
 
-  resources :accounts, only: %i(index show)
+  resources :accounts
   resources :contacts, only: %i(index show)
   resources :tasks,    only: %i(index)
   resources :users,    only: %i(new create show)
