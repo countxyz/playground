@@ -4,7 +4,7 @@ Place where I can play with code.
 
 ## Snapshots
 
-![Imgur](http://i.imgur.com/1J3ynBi.png)
+![Imgur](http://i.imgur.com/vzkxJ36.png)
 
 ## License
 
@@ -31,4 +31,4 @@ ___
     alt='WTFPL' />
 </a>
 
-![Imgur](http://i.imgur.com/S8XG5OKl.jpg)
+![Imgur](http://i.imgur.com/S8XG5OKm.jpg)

@@ -1,3 +1,7 @@
+'use strict'
+
+window.ImageEditor ?= {}
+
 ImageEditor.helper = {
 
   resizeHandles: (element) ->
