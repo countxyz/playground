@@ -11,7 +11,7 @@
   .overlay {
     @include position(absolute, 50% null null 50%);
     @include size(200px);
-    border: solid 2px $overlay-red;
+    border: solid 2px $color-overlay-red;
     box-sizing: content-box;
     margin-left: -100px;
     margin-top: -100px;
@@ -20,8 +20,8 @@
 
     &:before, &:after {
       @include size(204px 40px);
-      border-left:  dashed 2px $overlay-red;
-      border-right: dashed 2px $overlay-red;
+      border-left:  dashed 2px $color-overlay-red;
+      border-right: dashed 2px $color-overlay-red;
       content: '';
       display: block;
     }
@@ -39,8 +39,8 @@
     .overlay-inner {
       &:before, &:after {
         @include size(40px 204px);
-        border-bottom: dashed 2px $overlay-red;
-        border-top: dashed 2px $overlay-red;
+        border-bottom: dashed 2px $color-overlay-red;
+        border-top: dashed 2px $color-overlay-red;
         content: '';
         display: block;
         position: absolute;
@@ -69,14 +69,14 @@
 .resize-container img { display: block; }
 
 .resize-container:hover img,
-.resize-container:active img { outline: 2px dashed $overlay-red; }
+.resize-container:active img { outline: 2px dashed $color-overlay-red; }
 
 .resize-handle-ne,
 .resize-handle-se,
 .resize-handle-nw,
 .resize-handle-sw {
   @include size(10px);
-  background: $overlay-red;
+  background: $color-overlay-red;
   display: block;
   z-index: 999;
 }

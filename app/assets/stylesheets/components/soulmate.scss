@@ -3,7 +3,7 @@
 #soulmate {
   @include border-radius(0.3em);
   @include box-shadow(0, 0.3em, 0.8em, rgba(0, 0, 0, 0.2));
-  background-color: $site-white;
+  background-color: $color-site-white;
   border: 1px solid #BBB;
   display: none;
   font-family: $helvetica;

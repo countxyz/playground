@@ -7,9 +7,4 @@ section#accounts
     ul#accounts-list
       = render @accounts
 
-= javascript_include_tag 'modal'
-
-coffee:
-  $ ->
-    $('.delete_row').on 'ajax:success', ->
-      $('#somedialog').removeClass('dialog--open')
+= render 'modal_script'

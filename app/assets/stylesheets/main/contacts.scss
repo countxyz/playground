@@ -1,9 +1,22 @@
 #contacts {
   @include span-columns(12);
-  @include omega();
+
+  h1 {
+    @include span-columns(5);
+    @include shift(1);
+  }
 
   #contacts-content {
     @include span-columns(12);
-    @include omega();
+
+    #contacts-list {
+      @include span-columns(10);
+      @include shift(1);
+
+      li {
+        border-bottom: solid 1px black;
+        padding-top: 1em;
+      }
+    }
   }
 }

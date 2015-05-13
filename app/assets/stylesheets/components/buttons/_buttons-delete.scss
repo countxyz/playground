@@ -1,0 +1,51 @@
+.btn-delete {
+  @include size(50px 50px);
+  background: red;
+  border: none;
+  color: white;
+  display: block;
+  float: left;
+  margin: 0.1em;
+  min-width: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+
+  &:before {
+    @include position(absolute, 0 null null 0);
+    @include size(100%);
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 35px #37474f;
+    content: '';
+    z-index: -1;
+    -webkit-transform: scale3d(0.9, 0.9, 1);
+    transform: scale3d(0.9, 0.9, 1);
+    -webkit-transition: box-shadow 0.3s, -webkit-transform 0.3;
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+  &:hover {
+    color: #37474f;
+  }
+}
+
+.btn-delete .btn-delete-icon {
+  font-size: 18px;
+  width: 22px;
+}
+
+.btn-delete > span {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.btn-delete:hover::before {
+  box-shadow: inset 0 0 0 2px #37474f;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+}

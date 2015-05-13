@@ -1,0 +1,15 @@
+.modal
+  label for='modal-1'
+    .modal-trigger
+      i.icon.btn-delete-icon.icon-trash
+
+  input#modal-1.modal-state type='checkbox'
+
+  .modal-fade-screen
+    .modal-inner
+      .modal-close for='modal-1'
+      h2 Are you sure???
+
+      = link_to klass, method: :delete, remote: true,
+        class: 'delete_row push-right' do
+        button.btn-modal-delete Delete
