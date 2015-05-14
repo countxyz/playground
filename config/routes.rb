@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   resources :accounts, only: %i(index show destroy)
   resources :contacts, only: %i(index show)
   resources :tasks,    only: %i(index)
-  resources :users,    only: %i(new create show)
+
+  resource :users,    only: %i(new create show)
+
+  get 'dashboard', to: 'users#dashboard'
 
   get 'profile', to: 'users#show'
 
@@ -15,5 +18,5 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy', as: 'signout'
   get    'signup',  to: 'users#new'
 
-  root 'users#show'
+  root 'users#dashboard'
 end

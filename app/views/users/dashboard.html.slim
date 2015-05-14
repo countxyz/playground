@@ -1,0 +1,12 @@
+- provide :title, 'Dashboard'
+
+section#dashboard
+  header#dashboard-header
+    h1 Dashboard
+
+    nav#dashboard-links
+      ul
+        li = link_to 'Profile', profile_path
+
+  section#dashboard-content
+    h2 Content

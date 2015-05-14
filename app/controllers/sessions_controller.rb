@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       signin user
-      redirect_to profile_url, notice: 'Welcome Back!'
+      redirect_to dashboard_url, notice: 'Welcome Back!'
     else
       flash.now[:alert] = 'Unsuccessful Sign In'
       render 'new'

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i(show dashboard)
 
   def new
     @user = User.new
@@ -15,14 +16,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @user = current_user
-    redirect_to signin_url unless current_user
+  def dashboard
+    redirect_to signin_url unless @user
   end
 
   private
 
   def user_params
     params.require(:user).permit :email, :password, :password_confirmation
+  end
+
+  def set_user
+    @user = current_user
   end
 end
