@@ -16,4 +16,8 @@ class Product < ActiveRecord::Base
   def sales_total
     line_items.count
   end
+
+  def items_total
+    line_items.sum :quantity
+  end
 end

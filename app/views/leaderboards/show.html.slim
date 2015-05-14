@@ -8,17 +8,5 @@ section#leaderboards
 
   section#leaderboards-content
     h2#top_sales Top Sales
-
-    table.table-minimal
-      thead
-        tr
-          th
-          th Name
-          th Sales
-
-      tbody
-      - @entries.each do |entry|
-        tr
-          td = entry[:rank]
-          td = entry[:member]
-          td = entry[:score].to_i
+    = render 'top_sales'
+    = render 'top_items'

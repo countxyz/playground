@@ -37,5 +37,11 @@ RSpec.describe Product do
     it 'counts all seller transactions' do
       expect(create(:product_line_items).sales_total).to eq 2
     end
+
+    it 'calculates product quantity sales' do
+      user, product = create(:user), create(:product)
+      line_item     = create :line_item, quantity: 2, product: product
+      expect(product.items_total).to eq 2
+    end
   end
 end
