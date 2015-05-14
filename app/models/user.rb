@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
 
   has_many :accounts, dependent: :destroy
   has_many :contacts, dependent: :destroy
-  has_many :orders
+  has_many :products, dependent: :destroy
   has_many :tasks,    dependent: :destroy
+
 
   has_many :fax_phones,    as: :phoneable, dependent: :destroy
   has_many :home_phones,   as: :phoneable, dependent: :destroy

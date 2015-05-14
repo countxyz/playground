@@ -5,7 +5,7 @@ RSpec.describe User do
   describe 'Associations' do
     it { is_expected.to have_many(:accounts).dependent :destroy }
     it { is_expected.to have_many(:contacts).dependent :destroy }
-    it { is_expected.to have_many(:orders)                      }
+    it { is_expected.to have_many(:products).dependent :destroy }
     it { is_expected.to have_many(:tasks).dependent :destroy    }
 
     it { is_expected.to have_many(:fax_phones).dependent :destroy    }

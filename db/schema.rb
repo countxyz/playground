@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514020333) do
+ActiveRecord::Schema.define(version: 20150514103929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20150514020333) do
 
   add_index "emails", ["emailable_type", "emailable_id"], name: "index_emails_on_emailable_type_and_emailable_id", using: :btree
 
+  create_table "line_items", force: :cascade do |t|
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "quantity",                            default: 1
+    t.decimal  "unit_price",  precision: 8, scale: 2
+    t.decimal  "total_price", precision: 8, scale: 2
+    t.integer  "product_id"
+  end
+
+  add_index "line_items", ["product_id"], name: "index_line_items_on_product_id", using: :btree
+
   create_table "notes", force: :cascade do |t|
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
@@ -62,17 +73,6 @@ ActiveRecord::Schema.define(version: 20150514020333) do
   end
 
   add_index "notes", ["noteable_type", "noteable_id"], name: "index_notes_on_noteable_type_and_noteable_id", using: :btree
-
-  create_table "orders", force: :cascade do |t|
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
-    t.decimal  "total",      precision: 8, scale: 2, default: 0.0
-    t.integer  "status",                             default: 0
-    t.integer  "user_id"
-  end
-
-  add_index "orders", ["created_at"], name: "index_orders_on_created_at", using: :btree
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "phones", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -84,6 +84,16 @@ ActiveRecord::Schema.define(version: 20150514020333) do
   end
 
   add_index "phones", ["phoneable_type", "phoneable_id"], name: "index_phones_on_phoneable_type_and_phoneable_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "title",                                             null: false
+    t.decimal  "price",      precision: 8, scale: 2, default: 0.01
+    t.integer  "user_id"
+  end
+
+  add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.datetime "created_at",                  null: false
