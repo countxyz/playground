@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'users#dashboard'
 
+  get 'leaderboards', to: 'leaderboards#show'
+
   get 'profile', to: 'users#show'
 
   get    'signin',  to: 'sessions#new'

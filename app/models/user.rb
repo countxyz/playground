@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   has_many :products, dependent: :destroy
   has_many :tasks,    dependent: :destroy
 
-
   has_many :fax_phones,    as: :phoneable, dependent: :destroy
   has_many :home_phones,   as: :phoneable, dependent: :destroy
   has_many :mobile_phones, as: :phoneable, dependent: :destroy

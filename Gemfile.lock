@@ -96,6 +96,8 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.2)
+    leaderboard (3.10.0)
+      redis
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     magic_lamp (1.6.0)
@@ -266,6 +268,7 @@ DEPENDENCIES
   jasmine-jquery-rails (~> 2.0.3)
   jasmine-rails (~> 0.10.8)
   jquery-rails (~> 4.0.3)
+  leaderboard (~> 3.10.0)
   magic_lamp (~> 1.6.0)
   meta_request (~> 0.3.4)
   neat (~> 1.7.2)

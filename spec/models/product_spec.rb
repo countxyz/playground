@@ -26,4 +26,16 @@ RSpec.describe Product do
     it { is_expected.to validate_presence_of :title }
     it { is_expected.to validate_presence_of :price }
   end
+
+  describe 'Retrieving Objects' do
+
+    it 'finds product seller email' do
+      user = create :user, email: 'aa@a.aa'
+      expect(create(:product, user: user).seller_email).to eq 'aa@a.aa'
+    end
+
+    it 'counts all seller transactions' do
+      expect(create(:product_line_items).sales_total).to eq 2
+    end
+  end
 end

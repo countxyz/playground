@@ -5,3 +5,33 @@ records:
     last_name:             'Gibbons'
     password:              'password'
     password_confirmation: 'password'
+
+  - sprig_id: 2
+    email:                 'BigBird@sesamestreet.org'
+    first_name:            'Big'
+    last_name:             'Bird'
+    password:              'password'
+    password_confirmation: 'password'
+
+  - sprig_id: 3
+    email:                 'artvandalay@vandalayindustries.com'
+    first_name:            'Art'
+    last_name:             'Vandalay'
+    password:              'password'
+    password_confirmation: 'password'
+
+  - sprig_id: 4
+    email:                 'erlich@aviato.co'
+    first_name:            'Erlich'
+    last_name:             'Bachman'
+    password:              'password'
+    password_confirmation: 'password'
+
+  - sprig_id: 5
+    email:                 'OscarTheGrouch@sesamestreet.org'
+    first_name:            'Oscar'
+    last_name:             'Grouch'
+    password:              'password'
+    password_confirmation: 'password'
+
+

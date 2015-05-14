@@ -1,0 +1,24 @@
+- provide :title, 'Leaderboards'
+
+section#leaderboards
+  header#leaderboards-header
+    h1 On Top of the World...
+
+  hr
+
+  section#leaderboards-content
+    h2#top_sales Top Sales
+
+    table.table-minimal
+      thead
+        tr
+          th
+          th Name
+          th Sales
+
+      tbody
+      - @entries.each do |entry|
+        tr
+          td = entry[:rank]
+          td = entry[:member]
+          td = entry[:score].to_i

@@ -8,4 +8,12 @@ class Product < ActiveRecord::Base
   validates_numericality_of :price, greater_than_or_equal_to: 0.01
 
   validates_presence_of :title, :price
+
+  def seller_email
+    user.email
+  end
+
+  def sales_total
+    line_items.count
+  end
 end

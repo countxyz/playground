@@ -1,0 +1,25 @@
+records:
+  - sprig_id: 1
+    title:    'Product 1'
+    price:    1.00
+    user_id:  '<%= sprig_record(User, 1).id %>'
+
+  - sprig_id: 2
+    title:    'Product 2'
+    price:    2.00
+    user_id:  '<%= sprig_record(User, 1).id %>'
+
+  - sprig_id: 3
+    title:    'Product 3'
+    price:    3.00
+    user_id:  '<%= sprig_record(User, 2).id %>'
+
+  - sprig_id: 4
+    title:    'Product 4'
+    price:    4.00
+    user_id:  '<%= sprig_record(User, 3).id %>'
+
+  - sprig_id: 5
+    title:    'Product 5'
+    price:    5.00
+    user_id:  '<%= sprig_record(User, 4).id %>'

@@ -1,4 +1,5 @@
 records:
   - sprig_id:     1
     phone_number: '9175555555'
-    user_id:      '<%= sprig_record(User, 1).id %>'
+    type:         'MobilePhone'
+    phoneable_id: '<%= sprig_record(User, 1).id %>'

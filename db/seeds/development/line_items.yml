@@ -1,0 +1,120 @@
+records:
+  - sprig_id:    1
+    quantity:    1
+    unit_price:  1.00
+    total_price: 1.00
+    product_id:  '<%= sprig_record(Product, 1).id %>'
+
+  - sprig_id:    2
+    quantity:    2
+    unit_price:  2.00
+    total_price: 2.00
+    product_id:  '<%= sprig_record(Product, 1).id %>'
+
+  - sprig_id:    3
+    quantity:    3
+    unit_price:  2.00
+    total_price: 6.00
+    product_id:  '<%= sprig_record(Product, 2).id %>'
+
+  - sprig_id:    4
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 3).id %>'
+
+  - sprig_id:    5
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 2).id %>'
+
+  - sprig_id:    6
+    quantity:    3
+    unit_price:  2.00
+    total_price: 6.00
+    product_id:  '<%= sprig_record(Product, 3).id %>'
+
+  - sprig_id:    7
+    quantity:    3
+    unit_price:  2.00
+    total_price: 6.00
+    product_id:  '<%= sprig_record(Product, 1).id %>'
+
+  - sprig_id:    8
+    quantity:    1
+    unit_price:  1.00
+    total_price: 1.00
+    product_id:  '<%= sprig_record(Product, 1).id %>'
+
+  - sprig_id:    9
+    quantity:    1
+    unit_price:  1.00
+    total_price: 1.00
+    product_id:  '<%= sprig_record(Product, 3).id %>'
+
+  - sprig_id:    10
+    quantity:    3
+    unit_price:  2.00
+    total_price: 6.00
+    product_id:  '<%= sprig_record(Product, 4).id %>'
+
+  - sprig_id:    11
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 3).id %>'
+
+  - sprig_id:    12
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 2).id %>'
+
+  - sprig_id:    13
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 4).id %>'
+
+  - sprig_id:    14
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 2).id %>'
+
+  - sprig_id:    15
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 1).id %>'
+
+  - sprig_id:    16
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 2).id %>'
+
+  - sprig_id:    17
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 2).id %>'
+
+  - sprig_id:    18
+    quantity:    4
+    unit_price:  3.00
+    total_price: 12.00
+    product_id:  '<%= sprig_record(Product, 3).id %>'
+
+  - sprig_id:    19
+    quantity:    5
+    unit_price:  3.00
+    total_price: 15.00
+    product_id:  '<%= sprig_record(Product, 2).id %>'
+
+  - sprig_id:    20
+    quantity:    1
+    unit_price:  5.00
+    total_price: 5.00
+    product_id:  '<%= sprig_record(Product, 5).id %>'

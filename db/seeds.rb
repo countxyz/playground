@@ -1,16 +1,32 @@
 Account.unscoped.destroy_all
 Email.destroy_all
+LineItem.destroy_all
 Phone.destroy_all
+Product.destroy_all
 Task.unscoped.destroy_all
 User.destroy_all
 
 include Sprig::Helpers
 include SeedHelper
 
-sprig [User, Task]
+sprig [
+  Account,
+  Contact,
+  FaxPhone,
+  HomePhone,
+  LineItem,
+  MobilePhone,
+  OfficePhone,
+  Product,
+  Task,
+  TollPhone,
+  User
+]
 
 user = seed_user 'user@example.com', 'Bill', 'Lumbergh'
 user.save
+
+p 'This might take a while...'
 
 100.times do
   account = seed_account(
