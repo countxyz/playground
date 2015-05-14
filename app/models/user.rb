@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_many :accounts, dependent: :destroy
   has_many :contacts, dependent: :destroy
+  has_many :orders
   has_many :tasks,    dependent: :destroy
 
   has_many :fax_phones,    as: :phoneable, dependent: :destroy
@@ -16,7 +17,7 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
 
-  validates_format_of   :email, with: EMAIL_REGEX
+  validates_format_of :email, with: EMAIL_REGEX
 
   validates_length_of :first_name, :last_name, maximum: 50, allow_blank: true
   validates_length_of :email,    in: 5..50

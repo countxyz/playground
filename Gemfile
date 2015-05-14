@@ -26,7 +26,7 @@ group :development, :test do
   gem 'jasmine-jquery-rails', '~> 2.0.3'
   gem 'jasmine-rails', '~> 0.10.8'
   gem 'magic_lamp', '~> 1.6.0'
-  gem 'spring', '~> 1.3.4'
+  gem 'spring', '~> 1.3.6'
   gem 'rspec-rails', '~> 3.2.1'
 end
 

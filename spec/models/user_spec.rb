@@ -5,6 +5,7 @@ RSpec.describe User do
   describe 'Associations' do
     it { is_expected.to have_many(:accounts).dependent :destroy }
     it { is_expected.to have_many(:contacts).dependent :destroy }
+    it { is_expected.to have_many(:orders)                      }
     it { is_expected.to have_many(:tasks).dependent :destroy    }
 
     it { is_expected.to have_many(:fax_phones).dependent :destroy    }
@@ -69,6 +70,12 @@ RSpec.describe User do
       it 'does not authenticate' do
         expect(build(:user).authenticate 'passwordy').to_not be
       end
+    end
+  end
+
+  describe 'callbacks' do
+    it 'ensures email downcase before save' do
+      expect((create :user, email: 'A@A.CO').email).to eq 'a@a.co'
     end
   end
 end
