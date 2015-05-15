@@ -1,10 +1,12 @@
 class Board
+  attr_reader :stats
 
   SALES_TOTALS = { transactions: :update_transactions, items: :update_items }
 
   def initialize title, entries, category
     @entries     = entries
     @leaderboard = Leaderboard.new title
+    @stats       = {}
     send SALES_TOTALS[category]
   end
 
@@ -22,5 +24,10 @@ class Board
 
   def leader_pages total_pages
     @leaderboard.leaders total_pages
+  end
+
+  def user_performance email
+    @stats = @leaderboard.score_and_rank_for email
+    @stats.merge( { percentile: @leaderboard.percentile_for(email) } )
   end
 end

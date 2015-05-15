@@ -42,5 +42,14 @@ RSpec.describe 'Boards Service' do
 
       delete_leaderboard 'Most Items Spec'
     end
+
+    it 'accrues user performance stats' do
+      @most_items = Board.new 'Most Items Spec', @products, :items
+
+      expect(@most_items.user_performance 'a@aa.aa').
+        to eq({ member: 'a@aa.aa', score: 3.0, rank: 2, percentile: 0 })
+
+      delete_leaderboard 'Most Items Spec'
+    end
   end
 end

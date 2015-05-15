@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessor :password
+  include Authenticationable
 
   has_many :accounts, dependent: :destroy
   has_many :contacts, dependent: :destroy
@@ -29,17 +29,14 @@ class User < ActiveRecord::Base
 
   before_save :downcase_email
 
-  def password=(unencrypted_password)
-    @password            = unencrypted_password
-    self.password_digest = SCrypt::Password.create(unencrypted_password)
+  def transactions_performance
+    sales = Board.new 'Most Sales', Product.all, :transactions
+    sales.user_performance email
   end
 
-  def password_confirmation=(unencrypted_password)
-    @password_confirmation = unencrypted_password
-  end
-
-  def authenticate unencrypted_password
-    SCrypt::Password.new(password_digest) == unencrypted_password && self
+  def items_performance
+    items = Board.new 'Most Items', Product.all, :items
+    items.user_performance email
   end
 
   private

@@ -1,0 +1,35 @@
+section#user-scores
+  h2 Totals
+
+  section.stats
+    ul
+      li
+        = @user.transactions_performance[:score]
+        span Transactions
+      li
+        = @user.items_performance[:score]
+        span Items
+
+section#user-rankings
+  h2 Rankings
+
+  section.stats
+    ul
+      li
+        = @user.transactions_performance[:rank]
+        span Transactions
+      li
+        = @user.items_performance[:rank]
+        span Items
+
+section#user-percentiles
+  h2 Percentiles
+
+  section.stats
+    ul
+      li
+        = @user.transactions_performance[:percentile]
+        span Transactions
+      li
+        = @user.items_performance[:percentile]
+        span Items
