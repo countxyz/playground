@@ -1,0 +1,26 @@
+#leaderboards {
+  @include span-columns(12);
+
+  #leaderboards-header {
+    @include span-columns(12);
+
+    h1 {
+      @include span-columns(5);
+      @include shift(1);
+    }
+  }
+
+  #leaderboards-content {
+    @include span-columns(12);
+
+    #top_sales {
+      @include span-columns(10);
+      @include shift(1);
+    }
+
+    .table-minimal {
+      @include span-columns(10);
+      @include shift(1);
+    }
+  }
+}

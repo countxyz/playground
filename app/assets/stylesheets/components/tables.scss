@@ -1,0 +1,45 @@
+.table-minimal {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  padding-bottom: 2em;
+
+  tbody {
+    tr:hover > td, tr:hover > th {
+      background-color: aqua;
+    }
+
+    tr:nth
+  }
+
+  thead {
+    th {
+      background-color: black;
+      color: white;
+      border-bottom: 0px;
+      padding: .75em 1em;
+      text-align: left;
+    }
+  }
+
+  tbody {
+    background-color: white;
+
+    td {
+      border-bottom: 0px;
+      border-top: 1px solid gainsboro;
+      line-height: 1.5em;
+      padding: .75em 1em;
+    }
+  }
+
+  tfoot {
+
+    tr {
+      background-color: #333;
+      color: white;
+    }
+  }
+}
+
+tbody tr:nth-child(odd) td { background: #EBEBEB; }
