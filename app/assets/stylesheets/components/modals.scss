@@ -71,7 +71,7 @@
     @include transition(opacity 0.25s ease);
     background: $modal-background;
     border: 5px solid red;
-    border-radius: $base-border-radius;
+    border-radius: 3px;
     margin-top: 0;
     margin: auto;
     max-height: 95%;
@@ -95,7 +95,7 @@
     }
 
     .modal-content {
-      color: $base-font-color;
+      color: #333;
 
       @include media($medium-screen) {
         @include columns(2 8em);
