@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Signing In' do
+RSpec.feature 'Sign In' do
   before { visit '/' }
 
   scenario 'Successful sign in' do

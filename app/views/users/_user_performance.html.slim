@@ -4,10 +4,10 @@ section#user-scores
   section.stats
     ul
       li
-        = @user.transactions_performance[:score]
+        = data_format @user.transactions_performance[:score]
         span Transactions
       li
-        = @user.items_performance[:score]
+        = data_format @user.items_performance[:score]
         span Items
 
 section#user-rankings
@@ -16,10 +16,10 @@ section#user-rankings
   section.stats
     ul
       li
-        = @user.transactions_performance[:rank]
+        = data_format @user.transactions_performance[:rank]
         span Transactions
       li
-        = @user.items_performance[:rank]
+        = data_format @user.items_performance[:rank]
         span Items
 
 section#user-percentiles
@@ -28,8 +28,8 @@ section#user-percentiles
   section.stats
     ul
       li
-        = @user.transactions_performance[:percentile]
+        = data_format @user.transactions_performance[:percentile]
         span Transactions
       li
-        = @user.items_performance[:percentile]
+        = data_format @user.items_performance[:percentile]
         span Items

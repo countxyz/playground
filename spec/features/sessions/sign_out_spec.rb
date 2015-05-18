@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'signing out' do
+RSpec.feature 'Sign Out' do
   scenario 'Successful signout' do
     signin_as! create :user
     click_link 'Sign Out'

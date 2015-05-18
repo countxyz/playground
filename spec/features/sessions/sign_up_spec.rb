@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Signing up' do
+RSpec.feature 'Sign Up' do
   before do
     visit '/'
     click_link 'Sign Up'

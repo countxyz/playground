@@ -13,4 +13,8 @@ module ApplicationHelper
   def base_title
     'Playground'
   end
+
+  def data_format data
+    data.nil? ? 'N/A' : data.to_i
+  end
 end

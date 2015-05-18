@@ -11,4 +11,10 @@ RSpec.describe ApplicationHelper do
       expect(helper.full_title 'Sign Up').to eq 'Playground | Sign Up'
     end
   end
+
+  describe 'Data Format' do
+    it "is 'N/A' when data not given" do
+      expect(helper.data_format nil).to eq 'N/A'
+    end
+  end
 end
