@@ -9,7 +9,7 @@ RSpec.feature 'Hidden Links' do
       assert_link_for 'Sign Up'
 
       assert_no_link_for 'Sign In'
-      assert_no_link_for 'Profile'
+      assert_no_link_for 'Dashboard'
       assert_no_link_for 'Accounts'
       assert_no_link_for 'Contacts'
       assert_no_link_for 'Sign Out'
@@ -21,7 +21,7 @@ RSpec.feature 'Hidden Links' do
       assert_link_for 'Sign In'
 
       assert_no_link_for 'Sign Up'
-      assert_no_link_for 'Profile'
+      assert_no_link_for 'Dashboard'
       assert_no_link_for 'Accounts'
       assert_no_link_for 'Contacts'
       assert_no_link_for 'Sign Out'

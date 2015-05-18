@@ -10,8 +10,9 @@ class UsersController < ApplicationController
 
     if @user.save
       signin @user
-      redirect_to profile_url, notice: 'Sign up successful'
+      redirect_to dashboard_url, notice: 'Sign up successful'
     else
+      flash.now[:alert] = 'Sign up unsuccessful'
       render 'new'
     end
   end

@@ -11,11 +11,13 @@ RSpec.feature 'Signing In' do
     click_button 'Sign In'
 
     expect(page).to have_content 'Welcome Back!'
+    expect(page.current_url).to eq dashboard_url
   end
 
   scenario 'Unsuccessful sign in' do
     click_button 'Sign In'
 
     expect(page).to have_content 'Unsuccessful Sign In'
+    expect(page.current_url).to eq signin_url
   end
 end
