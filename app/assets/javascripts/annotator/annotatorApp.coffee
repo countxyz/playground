@@ -14,12 +14,14 @@ class Annotator.app
 
     document.getElementById('stop').addEventListener 'click', =>
       @video.pause()
+      @video.stream.stop()
 
   mediaConstraints: -> { video: true, audio: true }
 
   mediaStream: ->
     (stream) ->
-      @video.src = window.URL.createObjectURL stream
+      @video.stream = stream
+      @video.src = window.URL.createObjectURL @video.stream
       @video.play()
 
   mediaError: ->
