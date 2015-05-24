@@ -17,6 +17,7 @@
 
 @mixin clearfix {
   zoom: 1;
+
   &:before, &:after {
     content: '';
     display: table;
@@ -25,6 +26,21 @@
   &:after {
     clear: both;
   }
+}
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: flex;
+}
+
+@mixin flex-align($position) {
+  -webkit-align-items: $position;
+  align-items:         $position;
+}
+
+@mixin flex-justice($position) {
+  -webkit-justify-content: $position;
+  justify-content: $position;
 }
 
 @mixin vertical-gradient($top-color, $bottom-color) {

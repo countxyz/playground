@@ -20,16 +20,13 @@
       @include span-columns(6);
 
       ul {
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: space-between;
-        justify-content: space-between;
+        @include flexbox;
+        @include flex-justice(space-between);
 
         li {
           @include span-columns(1);
           @include shift(1);
-          -webkit-align-items: center;
-          align-items: center;
+          @include flex-align(center);
         }
       }
     }

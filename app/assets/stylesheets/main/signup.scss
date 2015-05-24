@@ -1,10 +1,7 @@
 #user-signup {
   @include span-columns(12);
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  align-items: center;
+  @include flexbox;
+  @include flex-justice(center);
+  @include flex-align(center);
   min-height: 100%;
 }

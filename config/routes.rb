@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resource :users,    only: %i(new create show)
 
-  get 'annotations', to: 'annotations#home'
+  get 'capture', to: 'webrtc#capture'
 
   get 'dashboard', to: 'users#dashboard'
 
