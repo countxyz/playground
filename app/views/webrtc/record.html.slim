@@ -1,0 +1,14 @@
+= javascript_include_tag '//cdn.webrtc-experiment.com/MediaStreamRecorder.js'
+
+section.capture-record
+  label for='time-interval' Time Interval (milliseconds):
+  input#time-interval type='text' value='5000' ms
+
+  hr
+
+  button id="start-recording" Start Recording
+  button [id="stop-recording" disabled] Stop Recording
+
+  #container
+
+= javascript_include_tag 'capture/record'

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   resource :users,    only: %i(new create show)
 
-  get 'capture', to: 'webrtc#capture'
+  get 'capture',        to: 'webrtc#capture'
+  get 'capture-record', to: 'webrtc#record'
 
   get 'dashboard', to: 'users#dashboard'
 

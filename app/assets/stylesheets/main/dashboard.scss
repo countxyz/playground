@@ -1,4 +1,4 @@
-#dashboard {
+#dashboard-wrapper {
   @include span-columns(12);
 
   #dashboard-header {
@@ -23,8 +23,8 @@
     @include span-columns(12);
 
     #user-performance {
-      display: flex;
-      justify-content: space-between;
+      @include flexbox;
+      @include flex-justice(space-between);
     }
 
     h2 {

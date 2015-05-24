@@ -4,5 +4,6 @@ Rails.application.config.assets.precompile += %w(
   main.js
   imageEditor.js
   contextMenu.js
-  capture.js
+  capture/stream.js
+  capture/record.js
 )

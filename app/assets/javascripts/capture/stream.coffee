@@ -1,6 +1,6 @@
-window.Capture ?= {}
+window.Stream ?= {}
 
-class Capture.app
+class Stream.app
   'use strict'
 
   constructor: ->
@@ -35,5 +35,5 @@ class Capture.app
   mediaError: ->
     (e) -> console.error 'media error', e
 
-cam = new Capture.app
+cam = new Stream.app
 cam.launchCapture()

@@ -1,6 +1,4 @@
-section#header-content
-  section#site-search
-    - if signed_in?
-      = form_tag do
-        = text_field_tag 'search', nil, placeholder: 'Search',
-          autocomplete: :off
+#site-search
+  - if signed_in?
+    = form_tag do
+      = text_field_tag 'search', nil, placeholder: 'Search', autocomplete: :off
