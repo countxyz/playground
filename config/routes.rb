@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resource :users,    only: %i(new create show)
 
+  get 'annotations', to: 'annotations#home'
+
   get 'dashboard', to: 'users#dashboard'
 
   get 'leaderboards', to: 'leaderboards#show'

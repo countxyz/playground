@@ -1,7 +1,7 @@
-section#user-scores
+#user-scores
   h2 Totals
 
-  section.stats
+  .stats
     ul
       li
         = data_format @user.transactions_performance[:score]
@@ -10,10 +10,10 @@ section#user-scores
         = data_format @user.items_performance[:score]
         span Items
 
-section#user-rankings
+#user-rankings
   h2 Rankings
 
-  section.stats
+  .stats
     ul
       li
         = data_format @user.transactions_performance[:rank]
@@ -22,10 +22,10 @@ section#user-rankings
         = data_format @user.items_performance[:rank]
         span Items
 
-section#user-percentiles
+#user-percentiles
   h2 Percentiles
 
-  section.stats
+  .stats
     ul
       li
         = data_format @user.transactions_performance[:percentile]
