@@ -1,9 +1,8 @@
 .component {
   background: url(image-editor/gridme.png) repeat center center;
+  @include size(600px 400px);
   border: 3px solid black;
-  height: 400px;
   margin: 0 auto;
-  width: 600px;
   overflow: hidden;
   padding: 4em;
   position: relative;

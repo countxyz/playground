@@ -23,8 +23,8 @@
     @include span-columns(12);
 
     #user-performance {
-      @include flexbox;
-      @include flex-justice(space-between);
+      @include display(flex);
+      @include justify-content(space-between);
     }
 
     h2 {

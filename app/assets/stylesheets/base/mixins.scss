@@ -28,19 +28,10 @@
   }
 }
 
-@mixin flexbox {
-  display: -webkit-box;
-  display: flex;
-}
-
-@mixin flex-align($position) {
-  -webkit-align-items: $position;
-  align-items:         $position;
-}
-
-@mixin flex-justice($position) {
-  -webkit-justify-content: $position;
-  justify-content: $position;
+@mixin flex-center {
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
 }
 
 @mixin vertical-gradient($top-color, $bottom-color) {

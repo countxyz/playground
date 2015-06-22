@@ -18,10 +18,8 @@
         padding-top: 1em;
 
         .account-item-listing {
-          display: -webkit-flex;
-          display: flex;
-          -webkit-justify-content: space-between;
-          justify-content: space-between;
+          @include display(flex);
+          @include justify-content(space-between);
         }
       }
     }
@@ -29,10 +27,8 @@
 }
 
 .account-delete-actions {
-  display: -webkit-flex;
-  display: flex;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  @include display(flex);
+  @include justify-content(space-between);
 }
 
 #account-profile {

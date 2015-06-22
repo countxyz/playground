@@ -1,7 +1,5 @@
 #user-signup {
   @include span-columns(12);
-  @include flexbox;
-  @include flex-justice(center);
-  @include flex-align(center);
+  @include flex-center;
   min-height: 100%;
 }

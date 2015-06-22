@@ -20,13 +20,13 @@
       @include span-columns(6);
 
       ul {
-        @include flexbox;
-        @include flex-justice(space-between);
+        @include display(flex);
+        @include justify-content(space-between);
 
         li {
           @include span-columns(1);
           @include shift(1);
-          @include flex-align(center);
+          @include align(center);
         }
       }
     }

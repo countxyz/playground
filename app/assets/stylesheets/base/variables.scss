@@ -1,4 +1,23 @@
-@import 'variables/sizes';
-@import 'variables/colors';
-@import 'variables/fonts';
-@import 'variables/modals';
+$color-delete:      #C94E50;
+$color-overlay-red: rgba(222, 60, 80, 0.9);
+$color-site-white:  #FAFAFA;
+
+$helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$lucida:  Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
+          'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana,
+          'Verdana Ref', sans-serif;
+
+$site-font: 'Merriweather', serif;
+
+$medium-screen: em(640) !default;
+$large-screen: em(860) !default;
+$modal-padding: 3em;
+$modal-background: white;
+$modal-close-color: #DDD !default;
+$modal-image-height: 135px;
+$modal-image-width: $modal-image-height;
+$modal-trigger-image-width: 300px;
+
+$soulmateWidth:   400px;
+$suggestionWidth: 300px;

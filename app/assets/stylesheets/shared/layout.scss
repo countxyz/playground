@@ -1,39 +1,39 @@
 body {
   @include outer-container;
-  display: flex;
-  flex-direction: column;
+  @include display(flex);
+  @include flex-direction(column);
   min-height: 100vh;
 }
 
 .site-header {
   @include span-columns(12);
-  display: flex;
+  @include display(flex);
   height: 5vh;
 }
 
 .site-content {
-  display: flex;
-  flex: 1;
+  @include display(flex);
+  @include flex(1);
 
   main {
     @include span-columns(12);
-    display: flex;
-    flex: 1;
+    @include display(flex);
+    @include flex(1);
   }
 
   .site-navigation {
-    flex: 0 0 12em;
+    @include flex(0 0 12em);
   }
 }
 
 .sign-out {
   @include span-columns(12);
-  display: flex;
+  @include display(flex);
   height: 10vh
 }
 
 .site-footer {
   @include span-columns(12);
-  display: flex;
+  @include display(flex);
   height: 15vh;
 }
