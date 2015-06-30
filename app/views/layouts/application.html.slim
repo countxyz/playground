@@ -15,20 +15,20 @@ html lang='en'
 
   body
     section.notifications
-      = render 'layouts/notifications'
+      = render 'notifications'
 
     header.site-header role='banner'
-      = render 'layouts/header'
+      = render 'header'
 
     .site-content
       main role='main'
         = yield
 
       nav.site-navigation role='navigation'
-        = render 'layouts/navigation_links' if signed_in?
+        = render 'navigation_links' if signed_in?
 
     nav.sign-out role='navigation'
-      = render 'layouts/sign_out' if signed_in?
+      = render 'sign_out' if signed_in?
 
     footer.site-footer role='contentinfo'
-      = render 'layouts/footer'
+      = render 'footer'
