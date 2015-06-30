@@ -2,5 +2,5 @@
 #= require jquery_ujs
 #= require turbolinks
 
-#= require notificationFlash
+#= require components/notificationFlash
 #= require soulmate
