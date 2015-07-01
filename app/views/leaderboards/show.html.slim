@@ -8,6 +8,7 @@ main role='main'
 
   section#leaderboards-content
     h2#top_sales Top Sales
+
     table.table-minimal
       thead
         tr
@@ -23,7 +24,7 @@ main role='main'
           td = entry[:score].to_i
 
       tfoot
-        tr.text-center
+        tr
           td colspan='3' Transactions
 
     table.table-minimal
@@ -41,5 +42,5 @@ main role='main'
           td = entry[:score].to_i
 
       tfoot
-        tr.text-center
+        tr
           td colspan='3' Items

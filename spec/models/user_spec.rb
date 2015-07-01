@@ -45,6 +45,20 @@ RSpec.describe User do
     it      { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   end
 
+  describe 'default attributes' do
+    it "provides 'activated' with false" do
+      @user = build :user
+      @user.save!
+      expect(@user.activated).to eq false
+    end
+
+    it "provides 'admin' with false" do
+      @user = build :user
+      @user.save!
+      expect(@user.admin).to eq false
+    end
+  end
+
   describe 'password confirmation' do
     context 'without password confirmation' do
       it 'is invalid' do

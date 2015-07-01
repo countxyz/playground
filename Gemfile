@@ -15,6 +15,8 @@ gem 'rack-contrib', '~> 1.2.0'
 gem 'redis', '~> 3.2.1'
 gem 'sass-rails', '~> 5.0.3'
 gem 'scrypt', '~> 2.0.2'
+gem 'sidekiq', '~> 3.4.1'
+gem 'sinatra', '~> 1.4.6', require: false
 gem 'slim-rails', '~> 3.0.1'
 gem 'simple_form', '~> 3.1.0'
 gem 'soulmate', '~> 1.1.0', require: 'soulmate/server'

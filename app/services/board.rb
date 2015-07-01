@@ -12,6 +12,7 @@ class Board
 
   def update_transactions
     @entries.each do |entry|
+      puts entry
       @leaderboard.rank_member entry.seller_email, entry.sales_total
     end
   end

@@ -5,6 +5,7 @@ records:
     last_name:             'Gibbons'
     password:              'password'
     password_confirmation: 'password'
+    activated:             true
 
   - sprig_id: 2
     email:                 'BigBird@sesamestreet.org'
@@ -12,6 +13,7 @@ records:
     last_name:             'Bird'
     password:              'password'
     password_confirmation: 'password'
+    activated:             true
 
   - sprig_id: 3
     email:                 'artvandalay@vandalayindustries.com'
@@ -19,6 +21,7 @@ records:
     last_name:             'Vandalay'
     password:              'password'
     password_confirmation: 'password'
+    activated:             true
 
   - sprig_id: 4
     email:                 'erlich@aviato.co'
@@ -26,6 +29,7 @@ records:
     last_name:             'Bachman'
     password:              'password'
     password_confirmation: 'password'
+    activated:             true
 
   - sprig_id: 5
     email:                 'OscarTheGrouch@sesamestreet.org'
@@ -33,5 +37,4 @@ records:
     last_name:             'Grouch'
     password:              'password'
     password_confirmation: 'password'
-
-
+    activated:             true

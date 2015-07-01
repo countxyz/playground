@@ -1,14 +1,13 @@
 .modal {
-
   label {
     cursor: pointer;
     margin-bottom: 0;
   }
 
   label img {
-    border-radius: $modal-trigger-image-width / 2;
+    border-radius: 9em;
     display: block;
-    max-width: $modal-trigger-image-width;
+    max-width: 19em;
   }
 
   .modal-state {
@@ -16,13 +15,14 @@
   }
 
   .modal-trigger {
-    @include button(flat, $color-delete);
+    background: $color-delete;
+    color: white;
     padding: 0.8em 1em;
   }
 
   .modal-fade-screen {
     @include transition(opacity 0.25s ease);
-    @include position(fixed, 0px 0px 0px 0px);
+    @include position(fixed, 0 0 0 0);
     background: rgba(0,0,0, 0.85);
     opacity: 0;
     padding-top: 0.6em;
@@ -35,31 +35,31 @@
     }
 
     .modal-bg {
-      @include position(absolute, 0px 0px 0px 0px);
+      @include position(absolute, 0 0 0 0);
       cursor: pointer;
     }
   }
 
   .modal-close {
-    @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
+    @include position(absolute, 1.5em 1.5em null null);
     @include size(1.5em);
-    background: $modal-background;
+    background: white;
     cursor: pointer;
 
     &:after,
     &:before {
-      @include position(absolute, 3px 3px 0 50%);
+      @include position(absolute, 0.188em 0.188em 0 50%);
       @include transform(rotate(45deg));
       @include size(0.15em 1.5em);
-      background: $modal-close-color;
+      background: #DDD;
       content: '';
       display: block;
-      margin: -3px 0 0 -1px;
+      margin: -0.188em 0 0 -0.063em;
     }
 
     &:hover:after,
     &:hover:before {
-      background: darken($modal-close-color, 10%);
+      background: darken(#DDD, 10%);
     }
 
     &:before {
@@ -69,20 +69,20 @@
 
   .modal-inner {
     @include transition(opacity 0.25s ease);
-    background: $modal-background;
-    border: 5px solid red;
-    border-radius: 3px;
+    background: white;
+    border: 0.313em solid red;
+    border-radius: 0.188em;
     margin-top: 0;
     margin: auto;
     max-height: 95%;
     overflow: auto;
-    padding: $modal-padding / 2;
+    padding: 1.5em;
     position: relative;
     width: 95%;
 
     @media (min-width: 40em) {
       max-height: 70%;
-      padding: $modal-padding;
+      padding: 3em;
       width: 60%;
     }
 
@@ -105,8 +105,7 @@
     a.cta {
       color: white;
       display: inline-block;
-      margin-right: 0.5em;
-      margin-top: 1em;
+      margin: 1em 0.5em 0 0;
 
       &:last-child {
         padding: 0 2em;

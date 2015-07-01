@@ -1,7 +1,6 @@
 @import 'normalize-rails';
 @import 'bourbon';
 
-@import 'base/helpers';
 @import 'base/variables';
 @import 'base/mixins';
 @import 'base/defaults';
@@ -26,3 +25,5 @@
 @import 'main/tasks';
 @import 'main/accounts';
 @import 'main/leaderboards';
+
+@import 'admin/dashboard';

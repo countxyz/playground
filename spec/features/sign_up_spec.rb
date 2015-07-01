@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature 'Sign Up' do
+  include ActiveJob::TestHelper
+
   before do
     visit '/'
     click_link 'Sign Up'
@@ -12,8 +14,12 @@ RSpec.feature 'Sign Up' do
     fill_in 'Password Confirmation', with: 'password'
     click_button 'Sign Up'
 
-    expect(page).to have_content 'Sign up successful'
-    expect(page.current_url).to eq dashboard_url
+    user = create :user
+    expect(enqueued_jobs.size).to eq 1
+    perform_enqueued_jobs { UserMailer.account_activation(user).deliver_now! }
+
+    expect(page.current_url).to eq signin_url
+    expect(page).to have_content 'Check email for activation link'
   end
 
   scenario 'unsuccessful sign up' do

@@ -23,6 +23,16 @@ sprig [
   User
 ]
 
+User.create(
+  email:                 'victim@target.com',
+  first_name:            'Fyodor',
+  last_name:             'Vaskovich',
+  password:              'password',
+  password_confirmation: 'password',
+  activated:             true,
+  admin:                 true
+)
+
 user = seed_user 'user@example.com', 'Bill', 'Lumbergh'
 user.save
 

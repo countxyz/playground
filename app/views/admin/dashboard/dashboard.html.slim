@@ -1,0 +1,9 @@
+- provide :title, 'AdminDashboard'
+
+main role='main'
+  header#admin-dashboard-header
+    h1 Dashboard
+
+    nav#admin-dashboard-links
+      ul
+        li = link_to 'Sidekiq', sidekiq_web_path

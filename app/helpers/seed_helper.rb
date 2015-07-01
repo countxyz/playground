@@ -22,7 +22,10 @@ module SeedHelper
       first_name:            first_name,
       last_name:             last_name,
       password:              'password',
-      password_confirmation: 'password' )
+      password_confirmation: 'password',
+      activated:             true,
+      admin:                 false
+    )
   end
 
   def seed_account name, website, user
@@ -31,14 +34,16 @@ module SeedHelper
       active:     boolean_sample,
       website:    website,
       created_at: datetime_sample,
-      user_id:    user.id )
+      user_id:    user.id
+    )
   end
 
   def seed_email address, klass, klass_id
     Email.create(
       address:        address,
       emailable_type: klass,
-      emailable_id:   klass_id )
+      emailable_id:   klass_id
+    )
   end
 
   def seed_phone klass_type, klass_id
@@ -46,7 +51,8 @@ module SeedHelper
       phone_number:   random_phone_number,
       type:           random_phone_type,
       phoneable_type: klass_type,
-      phoneable_id:   klass_id )
+      phoneable_id:   klass_id
+    )
   end
 
   def seed_contact first_name, last_name, company, klass_id
@@ -55,6 +61,7 @@ module SeedHelper
       last_name:  last_name,
       company:    company,
       created_at: datetime_sample,
-      user_id:    klass_id )
+      user_id:    klass_id
+    )
   end
 end

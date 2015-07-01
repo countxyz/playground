@@ -9,8 +9,8 @@ class UsersController < ApplicationController
     @user = User.new user_params
 
     if @user.save
-      signin @user
-      redirect_to dashboard_url, notice: 'Sign up successful'
+      AccountActivationJob.perform_later @user
+      redirect_to signin_url, notice: 'Check email for activation link'
     else
       flash.now[:alert] = 'Sign up unsuccessful'
       render 'new'

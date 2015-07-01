@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
 
   validates_format_of :email, with: EMAIL_REGEX
 
+  validates_inclusion_of :activated, :admin, in: [true, false]
+
   validates_length_of :first_name, :last_name, maximum: 50, allow_blank: true
   validates_length_of :email,    in: 5..50
   validates_length_of :password, in: 8..128
