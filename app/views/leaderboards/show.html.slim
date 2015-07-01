@@ -1,6 +1,6 @@
 - provide :title, 'Leaderboards'
 
-section#leaderboards
+main role='main'
   header#leaderboards-header
     h1 On Top of the World...
 
@@ -8,5 +8,38 @@ section#leaderboards
 
   section#leaderboards-content
     h2#top_sales Top Sales
-    = render 'top_sales'
-    = render 'top_items'
+    table.table-minimal
+      thead
+        tr
+          th
+          th Name
+          th Sales
+
+      tbody
+      - @sales_entries.each do |entry|
+        tr
+          td = entry[:rank]
+          td = entry[:member]
+          td = entry[:score].to_i
+
+      tfoot
+        tr.text-center
+          td colspan='3' Transactions
+
+    table.table-minimal
+      thead
+        tr
+          th
+          th Name
+          th Sales
+
+      tbody
+      - @item_entries.each do |entry|
+        tr
+          td = entry[:rank]
+          td = entry[:member]
+          td = entry[:score].to_i
+
+      tfoot
+        tr.text-center
+          td colspan='3' Items

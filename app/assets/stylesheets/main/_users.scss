@@ -1,0 +1,37 @@
+#user-signup { @include flex-center; }
+
+#dashboard-header {
+  @include size(100%);
+  @include display(flex);
+  @include align-items(flex-end);
+  padding: 2em 1em;
+
+  h1 {
+    margin: 0;
+  }
+
+  #dashboard-links {
+    ul {
+      margin: 0;
+
+      li {
+        display: inline;
+        padding-left: 0.5em;
+
+        a {
+          color: #6F99D5;
+
+          &:hover {
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}
+
+#dashboard-content {
+  @include display(flex);
+  @include justify-content(space-between);
+  padding: 1em 2em;
+}

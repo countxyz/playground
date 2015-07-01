@@ -1,0 +1,39 @@
+#site-footer-top {
+  @include size(100% 4em);
+  @include display(flex);
+  @include justify-content(flex-end);
+  @include align-items(center);
+  padding: 0 1em;
+}
+
+#site-footer-bottom {
+  @include display(flex);
+  @include justify-content(space-between);
+  background-color: black;
+  color: white;
+  padding: 0 1em;
+
+  #copyright {
+    font-size: 0.8em;
+    width: 50%;
+
+    a {
+      color: aqua;
+    }
+  }
+
+  #footer-links {
+    width: 50%;
+
+    ul {
+      @include display(flex);
+      @include justify-content(space-between);
+
+      li {
+        @include align-items(center);
+      }
+    }
+  }
+}
+
+#wtfpl, #github, #made-in-NY { @include size(4em); }

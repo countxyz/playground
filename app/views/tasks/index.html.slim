@@ -1,10 +1,19 @@
 - provide :title, 'Context Menu'
 
-section#tasks-index
-  ul.tasks
-    = render @tasks
+main role='main'
+  section#tasks-index
+    ul.tasks
+      == render @tasks
 
-  nav#context-menu.context-menu-interface
-    = render 'context_menu'
+    nav#context-menu.context-menu-interface
+      ul.context-menu-items
+        li.context-menu-item
+          a.context-menu-link href='#' data-action='View' View Task
+
+        li.context-menu-item
+          a.context-menu-link href='#' data-action='Edit' Edit Task
+
+        li.context-menu-item
+          a.context-menu-link href='#' data-action='Delete' Delete Task
 
 = javascript_include_tag 'contextMenu'

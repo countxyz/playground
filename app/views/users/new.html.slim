@@ -1,15 +1,16 @@
 - provide :title, 'Sign Up'
 
-section#user-signup
-  = simple_form_for @user,
-    defaults: { wrapper_html: { class: 'form-inputs' } } do |f|
+main#user-signup role='main'
+  section#user-signup-form
+    = simple_form_for @user,
+      defaults: { wrapper_html: { class: 'form-inputs' } } do |f|
 
-    = render 'shared/error_messages', klass: @user
+      = render 'shared/error_messages', klass: @user
 
-    = f.input :email
-    = f.input :password
-    = f.input :password_confirmation, label: 'Password Confirmation'
+      = f.input :email
+      = f.input :password
+      = f.input :password_confirmation, label: 'Password Confirmation'
 
-    nav.form-actions role='navigation'
-      = link_to 'Sign In', root_path
-      = f.button :submit, 'Sign Up'
+      nav.form-actions role='navigation'
+        = link_to 'Sign In', root_path
+        = f.button :submit, 'Sign Up'

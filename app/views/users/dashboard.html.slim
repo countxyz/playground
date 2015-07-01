@@ -1,13 +1,47 @@
 - provide :title, 'Dashboard'
 
-#dashboard-wrapper
+main role='main'
   header#dashboard-header
     h1 Dashboard
 
     nav#dashboard-links
       ul
-        li = link_to 'Profile',      profile_path
+        li = link_to 'Profile', profile_path
         li = link_to 'Leaderboards', leaderboards_path
 
   section#dashboard-content
-    = render 'user_performance'
+    #user-scores
+      h2 Totals
+
+      .stats
+        ul
+          li
+            = data_format @user.transactions_performance[:score]
+            span Transactions
+          li
+            = data_format @user.items_performance[:score]
+            span Items
+
+    #user-rankings
+      h2 Rankings
+
+      .stats
+        ul
+          li
+            = data_format @user.transactions_performance[:rank]
+            span Transactions
+          li
+            = data_format @user.items_performance[:rank]
+            span Items
+
+    #user-percentiles
+      h2 Percentiles
+
+      .stats
+        ul
+          li
+            = data_format @user.transactions_performance[:percentile]
+            span Transactions
+          li
+            = data_format @user.items_performance[:percentile]
+            span Items

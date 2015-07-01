@@ -1,14 +1,15 @@
 - provide :title, 'Profile'
 
-section#user-profile
-  h1 Profile
+main role='main'
+  section#user-profile
+    h1 Profile
 
-  .component
-    .overlay
-      .overlay-inner
+    .component
+      .overlay
+        .overlay-inner
 
-    = image_tag 'image-editor/bill-lumbergh.jpg', class: 'resize-image'
+      = image_tag 'image-editor/bill-lumbergh.jpg', class: 'resize-image'
 
-    button.btn-crop.js-crop Crop
+      button.btn-crop.js-crop Crop
 
 = javascript_include_tag 'imageEditor'

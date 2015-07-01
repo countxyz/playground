@@ -1,5 +1,12 @@
-section#footer-content
-  section#copyright
+#site-footer-top
+  - if signed_in?
+    = link_to signout_path, method: :delete do
+      button.btn-sign-out role='navigation'
+        i.btn-icon.icon.icon-forward
+        span Sign Out
+
+#site-footer-bottom
+  #copyright
     p Copyright © 2015 Efren Aguirre / skeptoid@gmail.com
     p Do What the Fuck You Want to Public License.
     p
@@ -9,11 +16,11 @@ section#footer-content
   nav#footer-links role='navigation'
     ul
       li
-        = link_to( image_tag( 'site/wtfpl-blue.svg', id: 'wtfpl' ),
+        = link_to( image_tag( 'shared/wtfpl-blue.svg', id: 'wtfpl' ),
         'http://www.wtfpl.net', target: '_blank' )
 
-      li = image_tag 'site/made-in-NY.png', id: 'made-in-NY'
+      li = image_tag 'shared/made-in-NY.png', id: 'made-in-NY'
 
       li
-        = link_to( image_tag( 'site/github.png', id: 'github' ),
+        = link_to( image_tag( 'shared/github.png', id: 'github' ),
         'https://github.com/countxyz', target: '_blank' )

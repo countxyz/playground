@@ -1,11 +1,12 @@
 - provide :title, 'Sign In'
 
-section#sessions-new
-  = simple_form_for :session, url: signin_path,
-    defaults: { wrapper_html: { class: 'form-inputs' } } do |f|
-    = f.input :email
-    = f.input :password
+main#sessions-new role='main'
+  section#sessions-new-form
+    = simple_form_for :session, url: signin_path,
+      defaults: { wrapper_html: { class: 'form-inputs' } } do |f|
+      = f.input :email
+      = f.input :password
 
-    nav.form-actions role='navigation'
-      = link_to 'Sign Up', new_users_path
-      = f.button :submit, 'Sign In'
+      nav.form-actions role='navigation'
+        = link_to 'Sign Up', new_users_path
+        = f.button :submit, 'Sign In'

@@ -1,0 +1,18 @@
+#accounts { width: 100%; }
+
+#accounts-list {
+  li {
+    border-bottom: solid 1px black;
+    padding-top: 1em;
+
+    .account-item-listing {
+      @include display(flex);
+      @include justify-content(space-between);
+    }
+  }
+}
+
+.account-delete-actions {
+  @include display(flex);
+  @include justify-content(space-between);
+}

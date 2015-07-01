@@ -1,7 +1,5 @@
 @import 'normalize-rails';
 @import 'bourbon';
-@import 'base/grid-settings';
-@import 'neat';
 
 @import 'base/helpers';
 @import 'base/variables';
@@ -21,15 +19,10 @@
 
 @import 'shared/layout';
 @import 'shared/header';
-@import 'shared/sign-out';
 @import 'shared/footer';
 
-@import 'main/signin';
-@import 'main/signup';
-@import 'main/dashboard';
-@import 'main/profile';
+@import 'main/sessions';
+@import 'main/users';
 @import 'main/tasks';
 @import 'main/accounts';
-@import 'main/contacts';
 @import 'main/leaderboards';
-@import 'main/webrtc';

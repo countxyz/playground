@@ -1,0 +1,9 @@
+#leaderboards-header { @include flex-center; }
+
+#leaderboards-content {
+  padding: 1em 4em;
+
+  h2 {
+    text-align: center;
+  }
+}

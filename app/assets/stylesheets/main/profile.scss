@@ -1,8 +1,0 @@
-#user-profile {
-  @include span-columns(12);
-
-  h1 {
-    @include span-columns(5);
-    @include shift(1);
-  }
-}

@@ -3,31 +3,31 @@ html lang='en'
 
   head
     meta charset='utf-8' content='template language' http-equiv='content-type'
+    meta name='viewport' content='width=device-width, initial-scale=1,\
+      minimum-scale=1'
+
     title = full_title yield :title
-    = favicon_link_tag 'site/erlenmeyer-flask.ico'
 
     = stylesheet_link_tag '//fonts.googleapis.com/css?family=Merriweather'
     = stylesheet_link_tag 'application', \
       media: 'all', 'data-turbolinks-track' => true
 
     = javascript_include_tag 'main', 'data-turbolinks-track' => true
+
+    = favicon_link_tag 'shared/erlenmeyer-flask.ico'
     = csrf_meta_tags
 
   body
-    = render 'notifications'
+    == render 'notifications'
 
-    header.site-header role='banner'
-      = render 'header'
+    header#site-header role='banner'
+      == render 'header'
 
-    .site-content
-      main role='main'
-        = yield
+    #content-wrapper
+      == yield
 
-      nav.site-navigation role='navigation'
-        = render 'navigation_links' if signed_in?
+      nav#site-navigation role='navigation'
+        == render 'navigation_links' if signed_in?
 
-    nav.sign-out role='navigation'
-      = render 'sign_out' if signed_in?
-
-    footer.site-footer role='contentinfo'
-      = render 'footer'
+    footer#site-footer role='contentinfo'
+      == render 'footer'

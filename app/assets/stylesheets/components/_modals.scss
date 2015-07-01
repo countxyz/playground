@@ -30,7 +30,7 @@
     visibility: hidden;
     z-index: 99999999999;
 
-    @include media($large-screen) {
+    @media (min-width: 53.75em) {
       padding-top: 10em;
     }
 
@@ -80,13 +80,13 @@
     position: relative;
     width: 95%;
 
-    @include media($medium-screen) {
+    @media (min-width: 40em) {
       max-height: 70%;
       padding: $modal-padding;
       width: 60%;
     }
 
-    @include media($large-screen) {
+    @media (min-width: 53.75em) {
       width: 50%;
     }
 
@@ -97,7 +97,7 @@
     .modal-content {
       color: #333;
 
-      @include media($medium-screen) {
+      @media (min-width: 40em) {
         @include columns(2 8em);
       }
     }
