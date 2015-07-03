@@ -1,4 +1,5 @@
 Account.unscoped.destroy_all
+Category.destroy_all
 Email.destroy_all
 LineItem.destroy_all
 Phone.destroy_all
@@ -11,6 +12,7 @@ include SeedHelper
 
 sprig [
   Account,
+  Category,
   Contact,
   FaxPhone,
   HomePhone,

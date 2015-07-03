@@ -1,0 +1,13 @@
+---
+records:
+  - sprig_id: 1
+    name: 'shirt'
+
+  - sprig_id: 2
+    name: 'sweater'
+
+  - sprig_id: 3
+    name: 'hat'
+
+  - sprig_id: 4
+    name: 'mug'

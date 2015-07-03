@@ -6,7 +6,8 @@ class CreateProducts < ActiveRecord::Migration
       t.string     :title, null: false
       t.decimal    :price, default: 0.01, precision: 8, scale: 2
 
-      t.references :user, index: true
+      t.references :category, index: true
+      t.references :user,     index: true
     end
   end
 end
