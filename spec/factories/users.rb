@@ -5,5 +5,6 @@ FactoryGirl.define do
     email                 { generate :email }
     password              'password'
     password_confirmation 'password'
+    activated             true
   end
 end

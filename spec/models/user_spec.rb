@@ -6,10 +6,10 @@ RSpec.describe User do
     it { is_expected.to have_many(:accounts).dependent :destroy }
     it { is_expected.to have_many(:contacts).dependent :destroy }
     it { is_expected.to have_many(:products).dependent :destroy }
-    it { is_expected.to have_many(:tasks).dependent :destroy    }
+    it { is_expected.to have_many(:tasks).dependent    :destroy }
 
-    it { is_expected.to have_many(:fax_phones).dependent :destroy    }
-    it { is_expected.to have_many(:home_phones).dependent :destroy   }
+    it { is_expected.to have_many(:fax_phones).dependent    :destroy }
+    it { is_expected.to have_many(:home_phones).dependent   :destroy }
     it { is_expected.to have_many(:mobile_phones).dependent :destroy }
     it { is_expected.to have_many(:office_phones).dependent :destroy }
 
@@ -17,14 +17,14 @@ RSpec.describe User do
   end
 
   describe 'Formats' do
-    it { is_expected.to allow_value('abc@xyz.com').for :email             }
-    it { is_expected.to_not allow_value('user@example,com').for :email    }
+    it { is_expected.to allow_value('abc@xyz.com').for             :email }
+    it { is_expected.to_not allow_value('user@example,com').for    :email }
     it { is_expected.to_not allow_value('user_at_example.com').for :email }
   end
 
   describe 'Lengths' do
     it { is_expected.to validate_length_of(:first_name).is_at_most 50 }
-    it { is_expected.to validate_length_of(:last_name).is_at_most 50  }
+    it { is_expected.to validate_length_of(:last_name).is_at_most  50 }
 
     it do
       is_expected.to validate_length_of(:email).is_at_least(5).is_at_most 50
@@ -47,7 +47,7 @@ RSpec.describe User do
 
   describe 'default attributes' do
     it "provides 'activated' with false" do
-      @user = build :user
+      @user = build :user, activated: false
       @user.save!
       expect(@user.activated).to eq false
     end

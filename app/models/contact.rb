@@ -1,5 +1,4 @@
 class Contact < ActiveRecord::Base
-
   belongs_to :user
 
   has_one :note, as: :noteable, dependent: :destroy

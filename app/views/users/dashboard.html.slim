@@ -6,8 +6,10 @@ main role='main'
 
     nav#dashboard-links
       ul
-        li = link_to 'Profile', profile_path
+        li = link_to 'Profile',      profile_path
         li = link_to 'Leaderboards', leaderboards_path
+        li = link_to 'Stream',       capture_path
+        li = link_to 'Capture',      capture_record_path
 
   section#dashboard-content
     #user-scores

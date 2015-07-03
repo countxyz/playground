@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :contacts,            only: %i(index show)
   resources :tasks,               only: %i(index)
 
-  resource :users,    only: %i(new create show)
+  resource :users, only: %i(new create show)
 
   get 'capture',        to: 'webrtc#capture'
   get 'capture-record', to: 'webrtc#record'
@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   get    'signup',  to: 'users#new'
 
   namespace :admin do
-    get 'dashboard', to: 'dashboard#dashboard'
+    get 'dashboard', to: 'pages#dashboard'
 
-    root 'dashboard#dashboard'
+    root 'pages#dashboard'
   end
 
   root 'users#dashboard'

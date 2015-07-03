@@ -7,3 +7,23 @@ class Phone < ActiveRecord::Base
 
   validates_numericality_of :phone_number, only_integer: true
 end
+
+class FaxPhone < Phone
+  validates_length_of :phone_number, in: 10..20
+end
+
+class HomePhone < Phone
+  validates_length_of :phone_number, is: 10
+end
+
+class MobilePhone < Phone
+  validates_length_of :phone_number, is: 10
+end
+
+class OfficePhone < Phone
+  validates_length_of :phone_number, in: 10..20
+end
+
+class TollPhone < Phone
+  validates_length_of :phone_number, is: 10
+end

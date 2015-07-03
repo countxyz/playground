@@ -24,9 +24,9 @@ sprig [
 ]
 
 User.create(
-  email:                 'victim@target.com',
-  first_name:            'Fyodor',
-  last_name:             'Vaskovich',
+  email:                 'admin@example.com',
+  first_name:            'Admin',
+  last_name:             'Shotcaller',
   password:              'password',
   password_confirmation: 'password',
   activated:             true,

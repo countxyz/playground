@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Hidden Links' do
+RSpec.feature 'Site Entrance' do
 
   context 'Logging In' do
     scenario 'Sign in page' do
