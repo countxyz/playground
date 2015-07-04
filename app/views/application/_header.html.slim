@@ -1,3 +1,10 @@
+
+- admins_only do
+  #admin-header-links
+    = link_to 'Admin Dashboard', admin_dashboard_path
+    = link_to 'Sidekiq',         admin_sidekiq_web_path
+    = link_to 'Products',        admin_products_path
+
 #site-search
   - if signed_in?
     = form_tag do

@@ -18,11 +18,9 @@ module UserSessions
   end
 
   def authorize_admin!
-    require_signin!
-
     unless current_user.try :admin?
       flash[:alert] = "Check ya' self before ya' wreck yo' self; Admins only!"
-      redirect_to dashboard_url
+      redirect_to root_url
     end
   end
 

@@ -1,5 +1,4 @@
-class Admin::PagesController < ApplicationController
-  before_action :authorize_admin!
+class Admin::PagesController < Admin::BaseController
 
   def dashboard; end
 end

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user && user.activated_authentication?(params[:session][:password])
       signin user
-      redirect_to dashboard_url, notice: 'Welcome Back!'
+      redirect_user
     else
       flash.now[:alert] = 'Unsuccessful Sign In'
       render 'new'
@@ -19,5 +19,15 @@ class SessionsController < ApplicationController
   def destroy
     signout
     redirect_to root_url, notice: 'Come back now, ya hear!'
+  end
+
+  private
+
+  def redirect_user
+    if current_user.try :admin?
+      redirect_to admin_dashboard_url, notice: 'Welcome Back!'
+    else
+      redirect_to dashboard_url, notice: 'Welcome Back!'
+    end
   end
 end

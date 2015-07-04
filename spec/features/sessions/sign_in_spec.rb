@@ -1,20 +1,24 @@
 require 'rails_helper'
 
 RSpec.feature 'Sign In' do
-  before { visit '/' }
 
-  scenario 'Successful sign in' do
-    user = create :user
-
-    fill_in 'Email',    with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign In'
+  scenario 'Successful user sign in' do
+    signin_as! create :user
 
     expect(page).to have_content 'Welcome Back!'
     expect(page.current_url).to eq dashboard_url
   end
 
+  scenario 'Successful user sign in' do
+    signin_as! create :admin
+
+    expect(page).to have_content 'Welcome Back!'
+    expect(page.current_url).to eq admin_dashboard_url
+  end
+
   scenario 'Unsuccessful sign in' do
+    visit '/'
+
     click_button 'Sign In'
 
     expect(page).to have_content 'Unsuccessful Sign In'

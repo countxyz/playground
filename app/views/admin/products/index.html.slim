@@ -1,0 +1,35 @@
+- provide :title, 'Admin - Products'
+
+main role='main'
+  section#admin-products-title
+    h1 Products
+
+  section#admin-products-table
+    h2 Products
+
+    table.table-minimal
+      thead
+        tr
+          th Id
+          th Name
+          th Category
+          th Price
+          th User
+
+      tbody
+      == render @products
+
+  section#admin-categories-table
+    h2 Categories
+
+    table.table-minimal
+      thead
+        tr
+          th Id
+          th Category
+
+      tbody
+      - @categories.each do |category|
+        tr
+          td = category.id
+          td = category.name

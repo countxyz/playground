@@ -27,7 +27,7 @@ html lang='en'
       == yield
 
       nav#site-navigation role='navigation'
-        == render 'navigation_links' if signed_in?
+        == render 'sidenav' if signed_in?
 
     footer#site-footer role='contentinfo'
       == render 'footer'

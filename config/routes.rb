@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   require 'sidekiq/web'
-  mount Sidekiq::Web,         at: 'admin/sidekiq'
+
   mount JasmineRails::Engine, at: 'specs'        if defined?(JasmineRails)
   mount MagicLamp::Genie,     at: 'magic_lamp'   if defined?(MagicLamp)
   mount Soulmate::Server,     at: 'autocomplete'
+
+  root 'users#dashboard'
 
   resources :account_activations, only: %i(edit)
   resources :accounts,            only: %i(index show destroy)
@@ -27,10 +29,12 @@ Rails.application.routes.draw do
   get    'signup',  to: 'users#new'
 
   namespace :admin do
-    get 'dashboard', to: 'pages#dashboard'
+    mount Sidekiq::Web, at: 'sidekiq'
 
     root 'pages#dashboard'
-  end
 
-  root 'users#dashboard'
+    resources :products, only: %i(index)
+
+    get 'dashboard', to: 'pages#dashboard'
+  end
 end
