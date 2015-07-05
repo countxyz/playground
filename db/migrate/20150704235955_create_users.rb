@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean  :activated,        default: false, null: false
       t.string   :activation_digest
       t.datetime :activated_at
-      t.boolean  :admin,            default: false, null: false
+      t.integer  :role,             default: 0
 
       t.index :email, unique: true
     end

@@ -7,8 +7,18 @@ FactoryGirl.define do
     password_confirmation 'password'
     activated             true
 
-    factory :admin do
-      admin true
+    factory :seller do
+      role 1
     end
+
+    factory :admin do
+      role 2
+    end
+  end
+
+  factory :unactivated_user, class: User do
+    email                 { generate :email }
+    password              'password'
+    password_confirmation 'password'
   end
 end

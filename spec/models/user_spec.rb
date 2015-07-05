@@ -45,17 +45,24 @@ RSpec.describe User do
     it      { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   end
 
+  describe 'Role' do
+    it do
+      is_expected.to define_enum_for(:role).
+      with([:customer, :seller, :admin])
+    end
+  end
+
   describe 'default attributes' do
     it "provides 'activated' with false" do
-      @user = build :user, activated: false
+      @user = build :unactivated_user
       @user.save!
       expect(@user.activated).to eq false
     end
 
-    it "provides 'admin' with false" do
+    it "provides 'role' with user" do
       @user = build :user
       @user.save!
-      expect(@user.admin).to eq false
+      expect(@user.role).to eq 'customer'
     end
   end
 

@@ -32,7 +32,7 @@ User.create(
   password:              'password',
   password_confirmation: 'password',
   activated:             true,
-  admin:                 true
+  role:                  2
 )
 
 user = seed_user 'user@example.com', 'Bill', 'Lumbergh'

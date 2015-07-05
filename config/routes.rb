@@ -12,12 +12,14 @@ Rails.application.routes.draw do
   resources :contacts,            only: %i(index show)
   resources :tasks,               only: %i(index)
 
-  resource :users, only: %i(new create show)
+  resource :users, only: %i(new create show edit)
 
   get 'capture',        to: 'webrtc#capture'
   get 'capture-record', to: 'webrtc#record'
 
   get 'dashboard', to: 'users#dashboard'
+
+  get 'edit-profile', to: 'users#edit'
 
   get 'leaderboards', to: 'leaderboards#show'
 

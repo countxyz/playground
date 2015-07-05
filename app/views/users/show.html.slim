@@ -1,15 +1,9 @@
 - provide :title, 'Profile'
 
 main role='main'
-  section#user-profile
+  header#user-profile
     h1 Profile
 
-    .component
-      .overlay
-        .overlay-inner
-
-      = image_tag 'image-editor/bill-lumbergh.jpg', class: 'resize-image'
-
-      button.btn-crop.js-crop Crop
-
-= javascript_include_tag 'imageEditor'
+  section#user-profile-content
+    h2 = @user.email
+    = link_to 'Edit', edit_profile_path

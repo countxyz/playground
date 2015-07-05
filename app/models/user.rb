@@ -13,13 +13,15 @@ class User < ActiveRecord::Base
 
   has_many :phones, as: :phoneable, dependent: :destroy
 
+  enum role: [:customer, :seller, :admin]
+
   EMAIL_REGEX = /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/
 
   validates_confirmation_of :password
 
   validates_format_of :email, with: EMAIL_REGEX
 
-  validates_inclusion_of :activated, :admin, in: [true, false]
+  validates_inclusion_of :activated, in: [true, false]
 
   validates_length_of :first_name, :last_name, maximum: 50, allow_blank: true
   validates_length_of :email,    in: 5..50

@@ -23,8 +23,7 @@ module SeedHelper
       last_name:             last_name,
       password:              'password',
       password_confirmation: 'password',
-      activated:             true,
-      admin:                 false
+      activated:             true
     )
   end
 

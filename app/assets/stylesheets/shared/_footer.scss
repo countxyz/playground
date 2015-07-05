@@ -1,14 +1,16 @@
 #site-footer-top {
-  @include size(100% 4em);
   @include display(flex);
   @include justify-content(flex-end);
   @include align-items(center);
+  @include size(100% 4em);
   padding: 0 1em;
 }
 
 #site-footer-bottom {
   @include display(flex);
   @include justify-content(space-between);
+  @include align-items(center);
+  @include size(100% 6em);
   background-color: black;
   color: white;
   padding: 0 2em;

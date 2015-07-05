@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i(show dashboard)
+  before_action :set_user, only: %i(show dashboard edit)
 
   def new
     @user = User.new

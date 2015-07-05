@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   sequence(:name) { |n| "account#{n}" }
 
   factory :account do

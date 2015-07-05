@@ -1,4 +1,7 @@
-*, *:before, *:after { box-sizing: inherit; }
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+}
 
 html {
   height: 100%;
@@ -8,9 +11,7 @@ html {
 body {
   @include display(flex);
   @include flex-direction(column);
-  margin: 0;
   min-height: 100%;
-  padding-bottom: 6em;
   position: relative;
 }
 
@@ -19,19 +20,19 @@ body {
 #content-wrapper {
   @include display(flex);
   @include flex(1);
+  padding-bottom: 10em;
 
   main {
-    width: 100%;
+    width: 85%;
   }
 
   #site-navigation {
-    @include flex(0 0 20%);
+    @include flex(0 0 15%);
+    margin-right: 1em;
   }
 }
 
-#sign-out { @include size(100% 4em); }
-
 #site-footer {
   @include position(absolute, null 0 0 0);
-  width: 100%;
+  @include size(100% 10em);
 }

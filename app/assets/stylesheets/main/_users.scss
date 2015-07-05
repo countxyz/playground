@@ -35,3 +35,18 @@
   @include justify-content(space-between);
   padding: 1em 2em;
 }
+
+#user-profile, #user-edit-profile { padding: 1em; }
+
+#user-profile-content {
+  @include flex-center;
+  padding: 1em;
+
+  h2 {
+    padding-right: 1em;
+  }
+
+  a {
+    color: #6F99D5;
+  }
+}

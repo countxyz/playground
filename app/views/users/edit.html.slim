@@ -1,0 +1,15 @@
+- provide :title, 'Edit Profile'
+
+main role='main'
+  header#user-edit-profile
+    h1 Edit Profile
+
+    .component
+      .overlay
+        .overlay-inner
+
+      = image_tag 'image-editor/bill-lumbergh.jpg', class: 'resize-image'
+
+      button.btn-crop.js-crop Crop
+
+= javascript_include_tag 'imageEditor'
